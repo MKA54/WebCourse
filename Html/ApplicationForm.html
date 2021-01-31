@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма для трудоустройства</title>
+</head>
+<body>
+<form action="/test.php" method="post">
+    <label>
+        Имя <input id="client_name" type="text" placeholder="Введите имя">
+    </label>
+    <br/>
+
+    <label>
+        Образование
+    </label>
+    <br/>
+    <label>
+        <input name="education" checked="checked" value="1" type="radio">Высшее
+    </label>
+    <label>
+        <input name="education" value="2" type="radio">Среднее
+    </label>
+    <label>
+        <input name="education" value="3" type="radio">Среднее специальное
+    </label>
+    <br/>
+
+    <label>
+        Ваши навыки
+    </label>
+    <label>
+        Word <input name="skills" type="checkbox" value="1">
+    </label>
+    <label>
+        Excel <input name="skills" type="checkbox" value="2">
+    </label>
+    <label>
+        Paint <input name="skills" type="checkbox" value="3">
+    </label>
+    <br/>
+
+    <label for="type_selection">
+        Тип занятости
+    </label>
+    <select id="type_selection" name="employment_type">
+        <option value="1">Полная</option>
+        <option value="2">Частичная</option>
+        <option value="3">Стажировка</option>
+    </select>
+    <br/>
+
+    <label>
+        График работы
+        <select multiple="multiple" name="employment_type">
+            <option value="1">Полный день</option>
+            <option value="2">Сменный график</option>
+            <option value="3">Гибкий график</option>
+            <option value="4">Удаленная работа</option>
+            <option value="5">Вахтовый метод</option>
+        </select>
+    </label>
+    <br/>
+
+    <label for="comment">Комментарий</label>
+    <textarea id="comment" placeholder="Введите комментарий" maxlength="35">
+    </textarea>
+    <br/>
+
+    <br/>
+    <button type="submit">Отправить форму</button>
+</form>
+
+<a href="HomePage.html">Ссылка на сайт компании</a>
+</body>
+</html>
