@@ -172,7 +172,7 @@ template {
     border-collapse: collapse;
 }
 
-.my_table th, td {
+.cell_style th, .cell_style td {
     border: 1px solid #CCC;
     text-align: left;
     padding-left: 15px;
@@ -180,7 +180,7 @@ template {
     padding-bottom: 13px;
 }
 
-.my_table th {
+.cell_style th {
     color: #FFF;
 }
 
