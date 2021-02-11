@@ -7,7 +7,7 @@
 <body>
 <form action="/test.php" method="post">
     <label>
-        Имя <input id="client_name" type="text" placeholder="Введите имя">
+        Имя <input id="client_name" name="name" type="text" placeholder="Введите имя">
     </label>
     <br/>
 
@@ -52,7 +52,7 @@
 
     <label>
         График работы
-        <select multiple="multiple" name="employment_type">
+        <select multiple="multiple" name="schedule">
             <option value="1">Полный день</option>
             <option value="2">Сменный график</option>
             <option value="3">Гибкий график</option>
@@ -70,7 +70,6 @@
     <br/>
     <button type="submit">Отправить форму</button>
 </form>
-
 <a href="HomePage.html">Ссылка на сайт компании</a>
 </body>
 </html>
