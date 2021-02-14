@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="my_form">
+    <h1 class="heading">Отправить заявку</h1>
+    <div class="form">
+        <form action="/test.php" method="post">
+            <div>
+                <label>
+                    Ваше имя
+                    <br/>
+                    <input type="text" name="name" placeholder="Ваше имя *">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Ваш номер телефона
+                    <br/>
+                    <input type="tel" name="phone" placeholder="Ваш номер телефона *">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Ваш email или VK
+                    <br/>
+                    <input type="email" name="phone" placeholder="Ваш email или VK *">
+                </label>
+            </div>
+            <label>
+                Комментарий
+                <br/>
+                <textarea name="comment" placeholder="Комментарий (не обязательно)"></textarea>
+            </label>
+            <p>
+                Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру
+            </p>
+            <button type="submit" class="blue white">Отправить заявку</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
