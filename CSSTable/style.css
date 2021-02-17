@@ -163,21 +163,36 @@ template {
     display: none;
 }
 
+/*
+    Свои стили
+ */
+
 .my_table {
-    max-width: 100%;
-    width: 860px;
+    max-width: 860px;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 19px;
     border: 1px solid #CCC;
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cell_style th, .cell_style td {
     border: 1px solid #CCC;
     text-align: left;
-    padding-left: 15px;
-    padding-top: 17px;
-    padding-bottom: 13px;
+    padding: 17px 15px 13px;
+}
+
+.column_name {
+    width: 175px;
+}
+
+.column_job {
+    width: 310px;
+}
+
+.column_twitter {
+    width: 200px;
 }
 
 .cell_style th {
@@ -188,6 +203,6 @@ template {
     background-color: #3498DB;
 }
 
-tbody tr:nth-child(odd) {
+.my_table tbody tr:nth-child(odd) {
     background-color: #EEEEEE;
 }
