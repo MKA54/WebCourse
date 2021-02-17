@@ -183,15 +183,15 @@ template {
     padding: 17px 15px 13px;
 }
 
-.column_name {
+.name_column {
     width: 175px;
 }
 
-.column_job {
+.job_column {
     width: 310px;
 }
 
-.column_twitter {
+.twitter_column {
     width: 200px;
 }
 
