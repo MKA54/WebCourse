@@ -167,7 +167,7 @@ template {
     Свои стили
  */
 
-.my_table {
+.table {
     max-width: 860px;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 19px;
@@ -177,32 +177,32 @@ template {
     margin-right: auto;
 }
 
-.cell_style th, .cell_style td {
+.table th, .table td {
     border: 1px solid #CCC;
     text-align: left;
     padding: 17px 15px 13px;
 }
 
 .name_column {
-    width: 175px;
+    width: 166px;
 }
 
 .job_column {
-    width: 310px;
+    width: 330px;
 }
 
 .twitter_column {
-    width: 200px;
+    width: 186px;
 }
 
-.cell_style th {
+.table th {
     color: #FFF;
 }
 
-.hats_background {
+.table thead {
     background-color: #3498DB;
 }
 
-.my_table tbody tr:nth-child(odd) {
+.table tbody tr:nth-child(odd) {
     background-color: #EEEEEE;
 }
