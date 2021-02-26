@@ -171,19 +171,19 @@ template {
     box-sizing: border-box;
 }
 
-.client_development {
+.course_description {
     max-width: 848px;
-    height: 464px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 18px;
-    padding: 5px 14px 7px 13px;
+    padding: 5px 10px;
     color: #676565;
     background-color: #FEEED6;
 }
 
-.client_development p {
+.course_description p {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 32px;
@@ -208,9 +208,11 @@ template {
 }
 
 .description > p {
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 1.4;
     font-weight: 300;
     text-indent: 17px;
     text-align: justify;
-    margin-top: 10px;
+    margin-top: 11px;
+    margin-bottom: 0;
 }
