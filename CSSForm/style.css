@@ -187,7 +187,7 @@ template {
 .form_content {
     max-width: 844px;
     background-color: #FEEED6;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bolder;
     padding: 17px 20px 18px 20px;
 }
@@ -215,30 +215,20 @@ template {
     width: 100%;
     height: 129px;
     border: none;
-    padding-top: 10px;
-    padding-left: 15px;
+    padding: 10px 15px;
 }
 
 .form button {
-    height: 34px;
-    width: 170px;
+    padding: 9px;
     border: none;
-}
-
-.form button {
     cursor: pointer;
     display: block;
     margin-left: auto;
+    font-weight: 700;
+    color: #FFF;
+    background-color: #378DB2;
 }
 
 .form_content button:hover {
     background-color: #4682B4;
-}
-
-.blue_background {
-    background-color: #378DB2;
-}
-
-.white_text_color {
-    color: #FFF;
 }
