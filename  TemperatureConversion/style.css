@@ -194,8 +194,12 @@ template {
     font-size: 14px;
 }
 
+.entry_field button {
+    background-color: #6495ED;
+}
+
 .entry_field button:hover {
-    background-color: #DEB887;
+    background-color: #008CBA;
     cursor: pointer;
 }
 
