@@ -216,8 +216,6 @@ template {
 }
 
 .text {
-    display: inline-block;
-    text-align: justify;
-    width: 50px;
+    width: 200px;
 }
 
