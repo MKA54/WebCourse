@@ -5,25 +5,43 @@
 
     console.log(array);
 
-    array.sort(function (e1, e2) {
-        return e2 - e1;
-    });
+    function sortDescending(array) {
+        array.sort(function (e1, e2) {
+            return e2 - e1;
+        });
+    }
+
+    sortDescending(array)
 
     console.log(array);
 
-    var subarray1 = array.slice(0, 5);
+    function getFirstFiveElementsArray(array) {
+        return array.slice(0, 5);
+    }
+
+    var subarray1 = getFirstFiveElementsArray(array);
 
     console.log(subarray1);
 
-    var subarray2 = array.slice(array.length - 5);
+    function getLastFiveElementsArray(array) {
+        return array.slice(array.length - 5);
+    }
+
+    var subarray2 = getLastFiveElementsArray(array);
 
     console.log(subarray2);
 
-    var evenElementsSum = array
-        .filter(function (element) {
-            return element % 2 === 0;})
-        .reduce(function (sum, element) {
-            return sum + element;}, 0);
+    function getEvenNumbersSum(array) {
+        return array
+            .filter(function (element) {
+                return element % 2 === 0;
+            })
+            .reduce(function (sum, element) {
+                return sum + element;
+            }, 0);
+    }
+
+    var evenElementsSum = getEvenNumbersSum(array);
 
     console.log(evenElementsSum);
 })();
@@ -31,17 +49,23 @@
 (function () {
     var array = new Array(100);
 
-    for (var i = 0, j = 1; i < array.length; i++, j++) {
-        array[i] = j;
+    for (var i = 0; i < array.length; i++) {
+        array[i] = i + 1;
     }
 
     console.log(array);
 
-    var evenNumbersListSquares = array
-        .filter(function (element) {
-            return element % 2 === 0;})
-        .map(function (element) {
-            return Math.pow(element, 2);});
+    function getListSquaresEvenNumbers(numbers) {
+        return array
+            .filter(function (element) {
+                return element % 2 === 0;
+            })
+            .map(function (element) {
+                return Math.pow(element, 2);
+            });
+    }
 
-    console.log(evenNumbersListSquares);
+    var listSquaresEvenNumbers = getListSquaresEvenNumbers(array);
+
+    console.log(listSquaresEvenNumbers);
 })();
