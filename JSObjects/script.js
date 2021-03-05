@@ -5,58 +5,94 @@
         {
             name: "Russia",
             citiesList: [
-                {name: "Omsk", population: 1154507},
-                {name: "Tomsk", population: 597819},
-                {name: "Novosibirsk", population: 1625631}]
+                {
+                    name: "Omsk", population: 1154507
+                },
+                {
+                    name: "Tomsk", population: 597819
+                },
+                {
+                    name: "Novosibirsk", population: 1625631
+                },
+                {
+                    name: "Krasnoyarsk", population: 1093771
+                },
+            ]
         },
         {
             name: "Czech Republic",
             citiesList: [
-                {name: "Prague", population: 1285977},
-                {name: "Brno", population: 368533},
-                {name: "Ostrava", population: 314257},
-                {name: "Liberec", population: 103997}]
+                {
+                    name: "Prague", population: 1285977
+                },
+                {
+                    name: "Brno", population: 368533
+                },
+                {
+                    name: "Ostrava", population: 314257
+                },
+                {
+                    name: "Liberec", population: 103997
+                }
+            ]
         },
         {
             name: "United States of America",
             citiesList: [
-                {name: "Chicago", population: 2722389},
-                {name: "Phoenix", population: 1537058},
-                {name: "Dallas", population: 1281047}],
+                {
+                    name: "Chicago", population: 2722389
+                },
+                {
+                    name: "Phoenix", population: 1537058
+                },
+                {
+                    name: "Dallas", population: 1281047
+                }
+            ],
         }
     ]
 
-    console.log(countriesArray);
+    console.log("Список стран:");
 
-    function getCountryWithMaxCountCities(array) {
+    countriesArray.forEach((country) => {
+        console.log(country);
+    });
+
+    function getCountriesWithMaxCountCities(array) {
         var maxCitiesCount = 0;
 
-        for (var country in array) {
-            if (array[country].citiesList.length > maxCitiesCount) {
-                maxCitiesCount = array[country].citiesList.length;
+        array.forEach((element) => {
+            if (element.citiesList.length > maxCitiesCount) {
+                maxCitiesCount = element.citiesList.length;
             }
-        }
+        })
 
-        var result = [];
-
-        for (var country in array) {
-            if (array[country].citiesList.length === maxCitiesCount) {
-                result.push(array[country].name);
-            }
-        }
-
-        return result;
+        return array.filter(element => element.citiesList.length === maxCitiesCount);
     }
 
-    console.log(getCountryWithMaxCountCities(countriesArray))
+    var countriesWithMaxCountCities = getCountriesWithMaxCountCities(countriesArray);
 
-    var countries = {};
+    console.log("Страна(ы) с максимальным количеством городов:");
 
-    for (var country in countriesArray) {
-        countries[countriesArray[country].name] = countriesArray[country].citiesList.reduce(function (sum, element) {
-            return sum + element.population;
-        }, 0);
+    countriesWithMaxCountCities.forEach((country) => {
+        console.log(country);
+    });
+
+    console.log("Список стран с численностью населения:");
+
+    function getInformationByCountries(array) {
+        return array.map(function (country) {
+            return {
+                [country.name]: country.citiesList.reduce(function (sum, element) {
+                    return sum + element.population;
+                }, 0)
+            };
+        });
     }
 
-    console.log(countries);
+    var informationByCountries = getInformationByCountries(countriesArray);
+
+    informationByCountries.forEach((country) => {
+        console.log(country);
+    });
 })();
