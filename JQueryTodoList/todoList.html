@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList</title>
+    <script src="libs/jquery-3.6.0.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="todo_list">
+    <h1>Список дел</h1>
+
+    <div class="entry_field">
+        <label>
+            <input type="text" id="new_todo_text" placeholder="Введите текст"/>
+            <span class="error" id="error_massage"></span>
+        </label>
+    </div>
+    <div class="entry_field">
+        <button type="button" id="add_button">Добавить</button>
+    </div>
+
+    <ul id="list"></ul>
+</div>
+</body>
+</html>
