@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 var cancelButton = listItem.querySelector(".cancel_button");
 
                 cancelButton.addEventListener("click", function () {
-
                     setViewMode();
                 });
             });
