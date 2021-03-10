@@ -171,7 +171,7 @@ template {
     box-sizing: border-box;
 }
 
-.entry_field {
+.temperature_conversion {
     max-width: 650px;
     margin-left: auto;
     margin-right: auto;
@@ -184,32 +184,37 @@ template {
     background-color: #FEEED6;
 }
 
-.entry_field h2 {
+.temperature_conversion h2 {
     text-align: center;
     color: #378DB2;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
-.entry_field input {
+.entry_field {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.temperature_conversion input {
     font-size: 14px;
 }
 
-.entry_field button {
+.temperature_conversion button {
     background-color: #6495ED;
 }
 
-.entry_field button:hover {
+.temperature_conversion button:hover {
     background-color: #008CBA;
     cursor: pointer;
 }
 
-.entry_field div {
+.temperature_conversion div {
     margin-top: 20px;
 }
 
 .error {
     display: block;
-    text-align: right;
-    padding-right: 130px;
+    margin-top: 5px;
     color: #f00;
 }

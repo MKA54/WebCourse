@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Conversion</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+<div class="temperature_conversion">
+    <h2>Перевод температуры.</h2>
+
+    <div class="entry_field">
+        <label for="initial_temperature">
+            Введите температуру в градусах Цельсия </label>
+    </div>
+    <div class="entry_field">
+        <input type="text" id="initial_temperature"
+               placeholder="Введите температуру"/>
+        <span class="error" id="errorMessage"></span>
+    </div>
+    <div class="entry_field">
+        <button type="button" id="convert_button">Перевести</button>
+    </div>
+
+    <div id="kelvin">
+        <span>Шкала Кельвина</span>
+    </div>
+
+    <div id="fahrenheit">
+        <span>Шкала Фаренгейта</span>
+    </div>
+</div>
+</body>
+</html>
