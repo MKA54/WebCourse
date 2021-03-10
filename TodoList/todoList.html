@@ -9,12 +9,16 @@
 <body>
 <div class="todo_list">
     <h1>Список дел</h1>
-    <label>
-        <input type="text" id="new_todo_text" placeholder="Введите текст"/>
-    </label>
-    <button type="button" id="add_button">Добавить</button>
 
-    <div class="error" id="error_massage"></div>
+    <div class="entry_field">
+        <label>
+            <input type="text" id="new_todo_text" placeholder="Введите текст"/>
+            <span class="error" id="error_massage"></span>
+        </label>
+    </div>
+    <div class="entry_field">
+        <button type="button" id="add_button">Добавить</button>
+    </div>
 
     <ul id="list"></ul>
 </div>
