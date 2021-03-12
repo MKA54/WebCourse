@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Телефонная книга</title>
+    <script src="libs/jquery-3.6.0.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone_Book">
+    <h1>Телефонная книга.</h1>
+
+    <div class="entry_field">
+        <label>
+            <input type="text" id="surname" placeholder="Введите фамилию"/>
+            <span class="error" id="surname_mistake"></span>
+        </label>
+    </div>
+    <div class="entry_field">
+        <label>
+            <input type="text" id="name" placeholder="Введите имя"/>
+            <span class="error" id="name_mistake"></span>
+        </label>
+    </div>
+    <div class="entry_field">
+        <label>
+            <input type="tel" id="phone" placeholder="Введите номер телефона">
+            <span class="error" id="phone_error"></span>
+        </label>
+    </div>
+
+    <button type="button" id="add_button">Добавить контакт</button>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="line_number">№</th>
+            <th class="name_column">Фамилия</th>
+            <th class="name_column">Имя</th>
+            <th class="phone_number">Номер телефона</th>
+            <th class="delete_line"></th>
+        </tr>
+        </thead>
+        <tbody id="table_body">
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
