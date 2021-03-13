@@ -3,14 +3,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     var nextTodoTextField = document.getElementById("new_todo_text");
     var list = document.getElementById("list");
-    var enterError = document.getElementById("error_massage");
+    var enterError = document.getElementById("error_message");
     var addButton = document.getElementById("add_button");
 
     addButton.addEventListener("click", function () {
         var text = nextTodoTextField.value;
 
-        if (text === "") {
+        if (text === "" || text.match(/^[ ]+$/)) {
             enterError.textContent = "Введите текст.";
+
+            nextTodoTextField.value = "";
 
             return;
         }
@@ -36,21 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 listItem.querySelector(".save_button").addEventListener("click", function () {
                     text = listItem.querySelector(".edit_text").value;
 
-                    if (text === "") {
+                    if (text === "" || text.match(/^[ ]+$/)) {
                         itemError.textContent = "Введите текст."
 
                         listItem.appendChild(itemError);
-
-                        addButton.disabled = true;
-                        cancelButton.disabled = true;
 
                         return;
                     }
 
                     itemError.textContent = "";
-
-                    addButton.disabled = false;
-                    cancelButton.disabled = false;
 
                     setViewMode();
                 });
