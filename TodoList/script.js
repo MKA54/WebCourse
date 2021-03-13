@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 listItem.innerHTML = "<input class='edit_text' /><button type='button' class='save_button'>Сохранить</button>" +
                     "<button type='button' class='cancel_button'>Отмена</button>";
 
-                listItem.querySelector(".edit_text").value = text;
+                var initialText = listItem.querySelector(".edit_text").value = text;
 
                 listItem.querySelector(".save_button").addEventListener("click", function () {
                     text = listItem.querySelector(".edit_text").value;
@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         itemError.textContent = "Введите текст."
 
                         listItem.appendChild(itemError);
+
+                        text = initialText;
 
                         return;
                     }
