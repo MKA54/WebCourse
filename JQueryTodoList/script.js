@@ -32,7 +32,7 @@ $(document).ready(function () {
                 listItem.html("<input class='edit_text' /><button type='button' class='save_button'>Сохранить</button>" +
                     "<button type='button' class='cancel_button'>Отмена</button>");
 
-                var initialText = listItem.find(".edit_text").val(text);
+                listItem.find(".edit_text").val(text);
 
                 listItem.find(".save_button").click(function () {
                     text = listItem.find(".edit_text").val();
@@ -53,8 +53,6 @@ $(document).ready(function () {
                 });
 
                 listItem.find(".cancel_button").click(function () {
-                    text = initialText.val();
-
                     setViewMode();
                 });
             });
