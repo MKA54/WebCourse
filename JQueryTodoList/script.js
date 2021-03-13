@@ -3,13 +3,13 @@
 $(document).ready(function () {
     var nextTodoTextField = $("#new_todo_text");
     var list = $("#list");
-    var enterError = $("#error_massage");
+    var enterError = $("#error_message");
     var addButton = $("#add_button");
 
     addButton.click(function () {
         var text = nextTodoTextField.val();
 
-        if (text === "") {
+        if (text === "" || text.match(/^[ ]+$/)) {
             enterError.text("Введите текст.");
 
             return;
@@ -21,8 +21,6 @@ $(document).ready(function () {
             listItem.html("<span class='text'></span><button type='button' class='edit_button'>Редактировать</button>" +
                 "<button type='button' class='delete_button'>Удалить</button>");
 
-            listItem.find(".text").text(text);
-
             listItem.find(".delete_button").click(function () {
                 listItem.remove();
             });
@@ -31,24 +29,14 @@ $(document).ready(function () {
                 listItem.html("<input class='edit_text' /><button type='button' class='save_button'>Сохранить</button>" +
                     "<button type='button' class='cancel_button'>Отмена</button>");
 
-                listItem.find(".edit_text").val(text);
-
                 listItem.find(".save_button").click(function () {
                     text = listItem.find(".edit_text").val();
 
-                    var buttons = $("button");
-
-                    if (text === "") {
+                    if (text === "" || text.match(/^[ ]+$/)) {
                         itemError.text("Введите текст.");
 
                         listItem.append(itemError);
-
-                        buttons.not(".save_button").prop("disabled", true);
-
-                        return;
                     }
-
-                    buttons.prop("disabled", false);
 
                     itemError.text("");
 
