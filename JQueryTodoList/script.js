@@ -4,13 +4,14 @@ $(document).ready(function () {
     var nextTodoTextField = $("#new_todo_text");
     var list = $("#list");
     var enterError = $("#error_message");
-    var addButton = $("#add_button");
 
-    addButton.click(function () {
+    $("#add_button").click(function () {
         var text = nextTodoTextField.val();
 
         if (text === "" || text.match(/^[ ]+$/)) {
             enterError.text("Введите текст.");
+
+            nextTodoTextField.val("");
 
             return;
         }
@@ -21,6 +22,8 @@ $(document).ready(function () {
             listItem.html("<span class='text'></span><button type='button' class='edit_button'>Редактировать</button>" +
                 "<button type='button' class='delete_button'>Удалить</button>");
 
+            listItem.find(".text").text(text);
+
             listItem.find(".delete_button").click(function () {
                 listItem.remove();
             });
@@ -29,6 +32,8 @@ $(document).ready(function () {
                 listItem.html("<input class='edit_text' /><button type='button' class='save_button'>Сохранить</button>" +
                     "<button type='button' class='cancel_button'>Отмена</button>");
 
+                var initialText = listItem.find(".edit_text").val(text);
+
                 listItem.find(".save_button").click(function () {
                     text = listItem.find(".edit_text").val();
 
@@ -36,6 +41,10 @@ $(document).ready(function () {
                         itemError.text("Введите текст.");
 
                         listItem.append(itemError);
+
+                        listItem.find(".edit_text").val("");
+
+                        return;
                     }
 
                     itemError.text("");
@@ -43,9 +52,9 @@ $(document).ready(function () {
                     setViewMode();
                 });
 
-                var cancelButton = listItem.find(".cancel_button");
+                listItem.find(".cancel_button").click(function () {
+                    text = initialText.val();
 
-                cancelButton.click(function () {
                     setViewMode();
                 });
             });
