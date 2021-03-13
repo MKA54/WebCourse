@@ -22,7 +22,7 @@ $(document).ready(function () {
             listItem.html("<span class='text'></span><button type='button' class='edit_button'>Редактировать</button>" +
                 "<button type='button' class='delete_button'>Удалить</button>");
 
-            listItem.find(".text").text(text);
+            var initialText = listItem.find(".text").text(text);
 
             listItem.find(".delete_button").click(function () {
                 listItem.remove();
@@ -53,6 +53,8 @@ $(document).ready(function () {
                 });
 
                 listItem.find(".cancel_button").click(function () {
+                    text = initialText.text();
+
                     setViewMode();
                 });
             });
