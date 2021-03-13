@@ -4,9 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var nextTodoTextField = document.getElementById("new_todo_text");
     var list = document.getElementById("list");
     var enterError = document.getElementById("error_message");
-    var addButton = document.getElementById("add_button");
 
-    addButton.addEventListener("click", function () {
+    document.getElementById("add_button").addEventListener("click", function () {
         var text = nextTodoTextField.value;
 
         if (text === "" || text.match(/^[ ]+$/)) {
@@ -43,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         listItem.appendChild(itemError);
 
-                        text = initialText;
+                        listItem.querySelector(".edit_text").value = "";
 
                         return;
                     }
@@ -56,6 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 var cancelButton = listItem.querySelector(".cancel_button");
 
                 cancelButton.addEventListener("click", function () {
+                    text = initialText;
+
                     setViewMode();
                 });
             });
