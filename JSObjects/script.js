@@ -4,95 +4,106 @@
     var countriesArray = [
         {
             name: "Russia",
-            citiesList: [
+            cities: [
                 {
-                    name: "Omsk", population: 1154507
+                    name: "Omsk",
+                    population: 1154507
                 },
                 {
-                    name: "Tomsk", population: 597819
+                    name: "Tomsk",
+                    population: 597819
                 },
                 {
-                    name: "Novosibirsk", population: 1625631
+                    name: "Novosibirsk",
+                    population: 1625631
                 },
                 {
-                    name: "Krasnoyarsk", population: 1093771
+                    name: "Krasnoyarsk",
+                    population: 1093771
                 },
             ]
         },
         {
             name: "Czech Republic",
-            citiesList: [
+            cities: [
                 {
-                    name: "Prague", population: 1285977
+                    name: "Prague",
+                    population: 1285977
                 },
                 {
-                    name: "Brno", population: 368533
+                    name: "Brno",
+                    population: 368533
                 },
                 {
-                    name: "Ostrava", population: 314257
+                    name: "Ostrava",
+                    population: 314257
                 },
                 {
-                    name: "Liberec", population: 103997
+                    name: "Liberec",
+                    population: 103997
                 }
             ]
         },
         {
             name: "United States of America",
-            citiesList: [
+            cities: [
                 {
-                    name: "Chicago", population: 2722389
+                    name: "Chicago",
+                    population: 2722389
                 },
                 {
-                    name: "Phoenix", population: 1537058
+                    name: "Phoenix",
+                    population: 1537058
                 },
                 {
-                    name: "Dallas", population: 1281047
+                    name: "Dallas",
+                    population: 1281047
                 }
-            ],
+            ]
         }
-    ]
+    ];
 
     console.log("Список стран:");
 
-    countriesArray.forEach((country) => {
+    countriesArray.forEach(function (country) {
         console.log(country);
     });
 
-    function getCountriesWithMaxCountCities(array) {
+    function getCountriesWithMaxCountCities(countriesArray) {
         var maxCitiesCount = 0;
 
-        array.forEach((element) => {
-            if (element.citiesList.length > maxCitiesCount) {
-                maxCitiesCount = element.citiesList.length;
+        countriesArray.forEach(function (country) {
+            if (country.cities.length > maxCitiesCount) {
+                maxCitiesCount = country.cities.length;
             }
-        })
+        });
 
-        return array.filter(element => element.citiesList.length === maxCitiesCount);
+        return countriesArray.filter(function (element) {
+            return element.cities.length === maxCitiesCount
+        });
     }
 
     var countriesWithMaxCountCities = getCountriesWithMaxCountCities(countriesArray);
 
     console.log("Страна(ы) с максимальным количеством городов:");
 
-    countriesWithMaxCountCities.forEach((country) => {
+    countriesWithMaxCountCities.forEach(function (country) {
         console.log(country);
     });
 
     console.log("Список стран с численностью населения:");
 
-    function getInformationByCountries(array) {
-        return array.map(function (country) {
-            return {
-                [country.name]: country.citiesList.reduce(function (sum, element) {
-                    return sum + element.population;
-                }, 0)
-            };
+    function getInformationByCountries(countriesArray) {
+        var informationByCountries = {};
+
+        countriesArray.forEach(function (country) {
+            informationByCountries[country.name] = country.cities.reduce(function (sum, element) {
+                return sum + element.population;
+            }, 0);
         });
+
+        return informationByCountries;
     }
 
-    var informationByCountries = getInformationByCountries(countriesArray);
-
-    informationByCountries.forEach((country) => {
-        console.log(country);
-    });
+    console.log(getInformationByCountries(countriesArray));
 })();
