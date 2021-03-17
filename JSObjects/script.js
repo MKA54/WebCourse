@@ -20,7 +20,7 @@
                 {
                     name: "Krasnoyarsk",
                     population: 1093771
-                },
+                }
             ]
         },
         {
