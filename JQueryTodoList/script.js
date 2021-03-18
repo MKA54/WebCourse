@@ -6,9 +6,9 @@ $(document).ready(function () {
     var enterError = $("#error_message");
 
     $("#add_button").click(function () {
-        var text = nextTodoTextField.val();
+        var text = nextTodoTextField.val().trim();
 
-        if (text === "" || text.match(/^[ ]+$/)) {
+        if (text === "") {
             enterError.text("Введите текст.");
 
             nextTodoTextField.val("");
@@ -35,13 +35,12 @@ $(document).ready(function () {
                 listItem.find(".edit_text").val(text);
 
                 listItem.find(".save_button").click(function () {
-                    text = listItem.find(".edit_text").val();
+                    text = listItem.find(".edit_text").val().trim();
 
-                    if (text === "" || text.match(/^[ ]+$/)) {
+                    if (text === "") {
                         itemError.text("Введите текст.");
 
                         listItem.append(itemError);
-
                         listItem.find(".edit_text").val("");
 
                         return;
@@ -61,13 +60,11 @@ $(document).ready(function () {
         }
 
         var listItem = $("<li>");
-
         var itemError = $("<div>").addClass("error");
 
         setViewMode();
 
         list.append(listItem);
-
         nextTodoTextField.val("");
     });
 });
