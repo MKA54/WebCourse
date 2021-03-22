@@ -78,8 +78,8 @@
             }
         });
 
-        return countriesArray.filter(function (element) {
-            return element.cities.length === maxCitiesCount
+        return countriesArray.filter(function (country) {
+            return country.cities.length === maxCitiesCount;
         });
     }
 
