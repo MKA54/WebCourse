@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="node_modules/jquery/dist/jquery.js"></script>
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script defer src="script.js"></script>
+
+    <title>TodoList</title>
+</head>
+<body>
+<div class="container bg-info">
+    <div class="row">
+        <h1 class="mb-4 ml-3 col-12 text-center">Список дел</h1>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="row mb-2">
+                <label for="new_todo_text"></label><input class="col-sm-2 mx-3 indent" type="text" id="new_todo_text"
+                                                          placeholder="Введите текст"/>
+                <button class="btn btn-success col-sm-2 mx-3 indent" type="button" id="add_button">Добавить</button>
+            </div>
+
+            <div class="row ml-auto">
+                <span class="alert-link alert-danger col-sm-2 mr-3" id="error_message"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <ul class="list-group ml-3 mb-3 text-primary bg-light" id="list"></ul>
+    </div>
+</div>
+</body>
+</html>
