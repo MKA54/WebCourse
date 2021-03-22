@@ -257,12 +257,16 @@ template {
     border: 2px solid #FFF;
 }
 
-.line_number {
+.number {
     width: 65px;
     text-align: center;
 }
 
-.name_column {
+.row_number {
+    text-align: center;
+}
+
+.name {
     text-align: left;
     width: 120px;
 }
@@ -272,6 +276,6 @@ template {
     width: 180px;
 }
 
-.delete_line {
+.delete {
     width: 55px;
 }

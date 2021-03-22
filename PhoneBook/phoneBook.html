@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Телефонная книга</title>
-    <script src="libs/jquery-3.6.0.js"></script>
+    <script defer src="libs/jquery-3.6.0.js"></script>
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,13 +14,13 @@
     <div class="entry_field">
         <label>
             <input type="text" id="surname" placeholder="Введите фамилию"/>
-            <span class="error" id="surname_mistake"></span>
+            <span class="error" id="surname_error"></span>
         </label>
     </div>
     <div class="entry_field">
         <label>
             <input type="text" id="name" placeholder="Введите имя"/>
-            <span class="error" id="name_mistake"></span>
+            <span class="error" id="name_error"></span>
         </label>
     </div>
     <div class="entry_field">
@@ -35,11 +35,11 @@
     <table class="table">
         <thead>
         <tr>
-            <th class="line_number">№</th>
-            <th class="name_column">Фамилия</th>
-            <th class="name_column">Имя</th>
+            <th class="number">№</th>
+            <th class="name">Фамилия</th>
+            <th class="name">Имя</th>
             <th class="phone_number">Номер телефона</th>
-            <th class="delete_line"></th>
+            <th class="delete"></th>
         </tr>
         </thead>
         <tbody id="table_body">

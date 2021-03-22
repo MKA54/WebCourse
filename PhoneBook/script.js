@@ -9,8 +9,8 @@ $(document).ready(function () {
 
     var tableBody = $("#table_body");
 
-    var surnameMistakeMessage = $("#surname_mistake");
-    var nameMistakeMessage = $("#name_mistake");
+    var surnameErrorMessage = $("#surname_error");
+    var nameErrorMessage = $("#name_error");
     var phoneErrorMessage = $("#phone_error");
 
     addButton.click(function () {
@@ -19,27 +19,24 @@ $(document).ready(function () {
         var phoneNumber = phone.val();
 
         if (surnameValue === "") {
-            surnameMistakeMessage.text("Введите фамилию.");
+            surnameErrorMessage.text("Введите фамилию.");
             surname.addClass("border_error");
 
             return;
         }
 
-        surnameMistakeMessage.text("");
+        surnameErrorMessage.text("");
         surname.removeClass("border_error");
 
-
         if (nameValue === "") {
-            nameMistakeMessage.text("Введите имя.");
+            nameErrorMessage.text("Введите имя.");
             name.addClass("border_error");
 
             return;
         }
 
-        nameMistakeMessage.text("");
+        nameErrorMessage.text("");
         name.removeClass("border_error");
-
-        var regularExpression = /(8)(\d{10})/;
 
         if (phoneNumber === "") {
             phoneErrorMessage.text("Введите номер телефон.");
@@ -47,6 +44,8 @@ $(document).ready(function () {
 
             return;
         }
+
+        var regularExpression = /(8)(\d{10})/;
 
         if (!regularExpression.test(phoneNumber)) {
             phoneErrorMessage.text("Введите в формате 8хххххххххх");
@@ -60,21 +59,24 @@ $(document).ready(function () {
         phoneErrorMessage.text("");
         phone.removeClass("border_error");
 
-        var line = $("<tr>");
-        line.html("<td class='line_number'></td><td class='surname_value'></td><td class='name_value'></td>" +
+        var row = $("<tr>");
+
+        row.html("<td class='row_number'></td><td class='surname_value'></td><td class='name_value'></td>" +
             "<td class='phone_number'></td><td><button type='button' class='delete_button'>х</button></td>");
 
-        line.find(".line_number").text();
-        line.find(".surname_value").text(surnameValue);
-        line.find(".name_value").text(nameValue);
-        line.find(".phone_number").text(phoneNumber);
+        row.find(".row_number").text($(".table tr").length);
+        row.find(".surname_value").text(surnameValue);
+        row.find(".name_value").text(nameValue);
+        row.find(".phone_number").text(phoneNumber);
 
-        tableBody.append(line)
+        tableBody.append(row);
 
-        $('.table tbody tr').each(function (i) {
-            var number = i + 1;
+        row.find(".delete_button").click(function () {
+            row.remove();
 
-            line.find('td:first').text(number);
+            $(".table tr").each(function (i) {
+                $(this).find("td:first").text(i);
+            });
         });
 
         surname.val("");
