@@ -2,7 +2,6 @@
 
 (function () {
     var array = [1, 5, 7, 6, 2, 15, 19, 20, 4, 13, 11];
-
     console.log(array);
 
     function sortDescending(array) {
@@ -12,7 +11,6 @@
     }
 
     sortDescending(array)
-
     console.log(array);
 
     function getFirstFiveArrayElements(array) {
@@ -20,7 +18,6 @@
     }
 
     var subarray1 = getFirstFiveArrayElements(array);
-
     console.log(subarray1);
 
     function getLastFiveArrayElements(array) {
@@ -28,7 +25,6 @@
     }
 
     var subarray2 = getLastFiveArrayElements(array);
-
     console.log(subarray2);
 
     function getEvenNumbersSum(array) {
@@ -42,7 +38,6 @@
     }
 
     var evenElementsSum = getEvenNumbersSum(array);
-
     console.log(evenElementsSum);
 })();
 
@@ -55,7 +50,7 @@
 
     console.log(array);
 
-    function getSquaresEvenNumbersList() {
+    function getEvenNumbersSquaresList() {
         return array
             .filter(function (element) {
                 return element % 2 === 0;
@@ -65,7 +60,6 @@
             });
     }
 
-    var listSquaresEvenNumbers = getSquaresEvenNumbersList(array);
-
-    console.log(listSquaresEvenNumbers);
+    var squaresListEvenNumbers = getEvenNumbersSquaresList(array);
+    console.log(squaresListEvenNumbers);
 })();
