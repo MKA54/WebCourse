@@ -60,6 +60,6 @@
             });
     }
 
-    var squaresListEvenNumbers = getEvenNumbersSquaresList(array);
-    console.log(squaresListEvenNumbers);
+    var evenNumbersSquaresList = getEvenNumbersSquaresList(array);
+    console.log(evenNumbersSquaresList);
 })();
