@@ -57,8 +57,9 @@
     var peopleAverageAge = _.chain(people)
         .pluck("age")
         .reduce(function (sum, number) {
-            return sum + number;
-        }, 0) / people.length;
+            return (sum + number);
+        }, 0)
+        .value() / people.length;
 
     console.log("Средний возраст людей: " + peopleAverageAge);
 
@@ -75,10 +76,13 @@
         console.log(person);
     });
 
+    _.each(people, function (person) {
+        person.fullName = person.lastName + " " + person.name;
+    });
+
     console.log("Список людей:");
 
     _.each(people, function (person) {
-        person.fullName = person.lastName + " " + person.name;
         console.log(person);
     });
 })();
