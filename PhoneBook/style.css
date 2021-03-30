@@ -171,7 +171,7 @@ template {
     box-sizing: border-box;
 }
 
-.phone_Book {
+.phone_book {
     max-width: 860px;
     margin-left: auto;
     margin-right: auto;
@@ -182,21 +182,17 @@ template {
     background-color: #FEEED6;
 }
 
-.phone_Book h1 {
+.phone_book h1 {
     text-align: center;
     color: #378DB2;
 }
 
-.phone_Book div {
-    margin-bottom: 10px;
-}
-
-.entry_field {
+.phone_book .entry_field {
     display: inline-block;
     vertical-align: top;
 }
 
-.error {
+.phone_book .error {
     font-size: 14px;
     display: block;
     margin-top: 5px;
@@ -204,21 +200,22 @@ template {
     font-weight: 600;
 }
 
-.border_error {
+.phone_book .border_error {
     border-color: #F00;
 }
 
-.entry_field {
+.phone_book .entry_field {
     display: inline-block;
     vertical-align: top;
 }
 
-.phone_Book input {
+.phone_book .entry_field input {
     padding-left: 5px;
     padding-right: 5px;
+    margin-bottom: 10px;
 }
 
-.table {
+.phone_book .table {
     max-width: 530px;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     border: 1px solid #CCC;
@@ -227,7 +224,7 @@ template {
     margin-right: auto;
 }
 
-.table th {
+.phone_book .table th {
     font-size: 14px;
     border: 1px solid #FFF;
     padding: 10px 10px 4px;
@@ -235,47 +232,47 @@ template {
     color: #FFF;
 }
 
-.table td {
+.phone_book .table td {
     font-size: 14px;
     border: 1px solid #FFF;
     padding: 10px 10px;
     background-color: #D0D8E8;
 }
 
-.phone_Book button:hover {
+.phone_book button:hover {
     cursor: pointer;
 }
 
-.delete_button {
+.phone_book .delete_button {
     border: none;
     background-color: #D0D8E8;
     padding-left: 13px;
     padding-right: 13px;
 }
 
-.table_body {
+.phone_book {
     border: 2px solid #FFF;
 }
 
-.number {
+.phone_book .number {
     width: 65px;
     text-align: center;
 }
 
-.row_number {
+.phone_book .row_number {
     text-align: center;
 }
 
-.name {
+.phone_book .name {
     text-align: left;
     width: 120px;
 }
 
-.phone_number {
+.phone_book .phone_number {
     text-align: left;
     width: 180px;
 }
 
-.delete {
+.phone_book .delete {
     width: 55px;
 }
