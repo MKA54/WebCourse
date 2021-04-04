@@ -57,7 +57,7 @@
     var peopleAverageAge = _.chain(people)
         .pluck("age")
         .reduce(function (sum, number) {
-            return (sum + number);
+            return sum + number;
         }, 0)
         .value() / people.length;
 
