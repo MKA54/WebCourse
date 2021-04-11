@@ -3,23 +3,27 @@
 $(document).ready(function () {
     var nextTodoTextField = $("#new_todo_text");
     var list = $("#list");
-    var enterError = $("#error_message");
+    var errorMessage = $("#error_message");
+    var form = $("#form");
 
     $("#add_button").click(function () {
         var text = nextTodoTextField.val().trim();
 
         if (text === "") {
-            enterError.text("Введите текст.");
+            errorMessage.removeClass("invalid-feedback");
+
+            form.addClass("was-validated");
 
             nextTodoTextField.val("");
 
             return;
         }
 
-        enterError.text("");
+        form.removeClass("was-validated");
+        errorMessage.addClass("invalid-feedback");
 
         function setViewMode() {
-            listItem.html("<span class='text'></span><button type='button' class='mx-2 btn btn-primary edit_button'>Редактировать</button>" +
+            listItem.html("<span class='text'></span><button type='button' class='mx-1 btn btn-warning edit_button'>Редактировать</button>" +
                 "<button type='button' class='btn btn-danger delete_button'>Удалить</button>");
 
             var initialText = listItem.find(".text").text(text);
@@ -29,7 +33,7 @@ $(document).ready(function () {
             });
 
             listItem.find(".edit_button").click(function () {
-                listItem.html("<input class='edit_text' /><button type='button' class='mx-2 btn btn-success save_button'>Сохранить</button>" +
+                listItem.html("<input type='text' class='edit_text' /><button type='button' class='mx-1 btn btn-success save_button'>Сохранить</button>" +
                     "<button type='button' class='btn btn-danger cancel_button'>Отмена</button>");
 
                 listItem.find(".edit_text").val(text);
@@ -59,10 +63,12 @@ $(document).ready(function () {
             });
         }
 
-        var listItem = $("<li>").addClass("list-group-item list-group-item-dark d-inline-block");
+        var listItem = $("<li>").addClass("list-group-item border-bottom border-info bg bg-light");
         var itemError = $("<div>").addClass("alert-link alert-danger indent mt-2");
 
         setViewMode();
+
+        list.addClass("border border-info");
 
         list.append(listItem);
         nextTodoTextField.val("");

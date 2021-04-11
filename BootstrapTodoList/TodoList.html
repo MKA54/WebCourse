@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,28 +14,29 @@
     <title>TodoList</title>
 </head>
 <body>
-<div class="container bg-info">
-    <div class="row">
-        <h1 class="mb-4 ml-3 col-12 text-center">Список дел</h1>
-    </div>
+<div class="container bg-light border border-dark">
+    <h1 class="mb-4 text-center">Список дел</h1>
 
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="row mb-2">
-                <label for="new_todo_text"></label><input class="col-sm-2 mx-3 indent" type="text" id="new_todo_text"
-                                                          placeholder="Введите текст"/>
-                <button class="btn btn-success col-sm-2 mx-3 indent" type="button" id="add_button">Добавить</button>
+    <form class="needs-validation" novalidate id="form">
+        <div class="form-row no-gutters">
+            <div class="col-10 mr-2">
+                <input type=text class="form-control border border-dark indent" id="new_todo_text"
+                       aria-label="Введите текст" placeholder="Введите текст" required/>
             </div>
-
-            <div class="row ml-auto">
-                <span class="alert-link alert-danger col-sm-2 mr-3" id="error_message"></span>
+            <div class="col-1">
+                <button class="btn btn-primary indent" type="button" id="add_button">Добавить</button>
             </div>
         </div>
 
-    </div>
+        <div class="col-4 pl-0 invalid-feedback" id="error_message">
+            Введите текст.
+        </div>
+    </form>
 
-    <div class="row">
-        <ul class="list-group ml-3 mb-3 text-primary bg-light" id="list"></ul>
+    <div class="form-row my-3">
+        <div class="col-md-6">
+            <ul class="list-group" id="list"></ul>
+        </div>
     </div>
 </div>
 </body>
