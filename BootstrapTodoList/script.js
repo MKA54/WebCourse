@@ -14,6 +14,8 @@ $(document).ready(function () {
             return;
         }
 
+        form.removeClass("was-validated");
+
         function setViewMode() {
             listItem.html("<span class='text'></span><button type='button' class='mx-1 btn btn-warning edit_button'>Редактировать</button>" +
                 "<button type='button' class='btn btn-danger delete_button'>Удалить</button>");
