@@ -22,14 +22,13 @@
             <div class="col-10 mr-2">
                 <input type=text class="form-control border border-dark indent" id="new_todo_text"
                        aria-label="Введите текст" placeholder="Введите текст" required/>
+                <div class="col-4 pl-0 invalid-feedback" id="error_message">
+                    Введите текст.
+                </div>
             </div>
-            <div class="col-1">
+            <div class="col-auto">
                 <button class="btn btn-primary indent" type="button" id="add_button">Добавить</button>
             </div>
-        </div>
-
-        <div class="col-4 pl-0 invalid-feedback" id="error_message">
-            Введите текст.
         </div>
     </form>
 

@@ -3,24 +3,16 @@
 $(document).ready(function () {
     var nextTodoTextField = $("#new_todo_text");
     var list = $("#list");
-    var errorMessage = $("#error_message");
     var form = $("#form");
 
     $("#add_button").click(function () {
         var text = nextTodoTextField.val().trim();
 
-        if (text === "") {
-            errorMessage.removeClass("invalid-feedback");
-
+        if (form[0].checkValidity() === false) {
             form.addClass("was-validated");
-
-            nextTodoTextField.val("");
 
             return;
         }
-
-        form.removeClass("was-validated");
-        errorMessage.addClass("invalid-feedback");
 
         function setViewMode() {
             listItem.html("<span class='text'></span><button type='button' class='mx-1 btn btn-warning edit_button'>Редактировать</button>" +
