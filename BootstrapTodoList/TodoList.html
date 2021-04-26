@@ -17,10 +17,10 @@
 <div class="container bg-light border border-dark">
     <h1 class="mb-4 text-center">Список дел</h1>
 
-    <form class="needs-validation" novalidate id="form">
+    <form class="needs-validation mb-4" novalidate id="inputForm">
         <div class="form-row no-gutters">
-            <div class="col-10 mr-2">
-                <input type=text class="form-control border border-dark indent" id="new_todo_text"
+            <div class="col-10">
+                <input type=text class="form-control indent" id="new_todo_text"
                        aria-label="Введите текст" placeholder="Введите текст" required/>
                 <div class="col-4 pl-0 invalid-feedback" id="error_message">
                     Введите текст.
@@ -32,9 +32,27 @@
         </div>
     </form>
 
-    <div class="form-row my-3">
-        <div class="col-md-6">
-            <ul class="list-group" id="list"></ul>
+    <form class="needs-validation mb-4" novalidate id="listForm">
+        <ul class="list-group" id="list"></ul>
+    </form>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalTemplate">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Подтверждение удаления записи.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Вы действительно хотите удалить запись?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="deleteButton" class="btn btn-primary">Удалить</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Выход</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

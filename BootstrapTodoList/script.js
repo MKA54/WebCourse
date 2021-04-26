@@ -3,18 +3,18 @@
 $(document).ready(function () {
     var nextTodoTextField = $("#new_todo_text");
     var list = $("#list");
-    var form = $("#form");
+    var inputForm = $("#inputForm");
 
     $("#add_button").click(function () {
-        var text = nextTodoTextField.val().trim();
+        inputForm.removeClass("was-validated");
 
-        if (form[0].checkValidity() === false) {
-            form.addClass("was-validated");
+        if (inputForm[0].checkValidity() === false) {
+            inputForm.addClass("was-validated");
 
             return;
         }
 
-        form.removeClass("was-validated");
+        var text = nextTodoTextField.val().trim();
 
         function setViewMode() {
             listItem.html("<span class='text'></span><button type='button' class='mx-1 btn btn-warning edit_button'>Редактировать</button>" +
@@ -23,28 +23,33 @@ $(document).ready(function () {
             var initialText = listItem.find(".text").text(text);
 
             listItem.find(".delete_button").click(function () {
-                listItem.remove();
+                $("#modalTemplate").modal("show");
+
+                $("#deleteButton").click(function () {
+                    listItem.remove();
+
+                    $("#modalTemplate").modal("hide");
+                });
             });
 
             listItem.find(".edit_button").click(function () {
-                listItem.html("<input type='text' class='edit_text' /><button type='button' class='mx-1 btn btn-success save_button'>Сохранить</button>" +
-                    "<button type='button' class='btn btn-danger cancel_button'>Отмена</button>");
+                listItem.html("<div class='row'><div class='d-inline-block'><input type='text' class='form-control indent edit_text' required/><div class='invalid-feedback'>Введите текст</div></div>" +
+                    "<div class='d-inline-block'><button type='button' class='btn btn-success save_button ml-2'>Сохранить</button> <button type='button' class='btn btn-danger cancel_button'>Отмена</button></div></div>");
 
                 listItem.find(".edit_text").val(text);
 
                 listItem.find(".save_button").click(function () {
-                    text = listItem.find(".edit_text").val().trim();
+                    var listForm = $("#listForm");
 
-                    if (text === "") {
-                        itemError.text("Введите текст.");
+                    listForm.removeClass("was-validated");
 
-                        listItem.append(itemError);
-                        listItem.find(".edit_text").val("");
+                    if (listForm[0].checkValidity() === false) {
+                        listForm.addClass("was-validated");
 
                         return;
                     }
 
-                    itemError.text("");
+                    text = listItem.find(".edit_text").val().trim();
 
                     setViewMode();
                 });
@@ -57,14 +62,12 @@ $(document).ready(function () {
             });
         }
 
-        var listItem = $("<li>").addClass("list-group-item border-bottom border-info bg bg-light");
-        var itemError = $("<div>").addClass("alert-link alert-danger indent mt-2");
+        var listItem = $("<li>").addClass("list-group-item d-inline");
 
         setViewMode();
 
-        list.addClass("border border-info");
-
         list.append(listItem);
+
         nextTodoTextField.val("");
     });
 });
