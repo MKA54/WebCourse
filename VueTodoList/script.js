@@ -1,4 +1,4 @@
-"use strict";
+import { required, minLength} from 'node_modules/vuelidate/lib/validators'
 
 Vue.component("todo-list-item", {
     props: {
@@ -38,8 +38,6 @@ Vue.component("todo-list-item", {
     }
 });
 
-import { required, minLength} from 'node_modules/vuelidate/lib/validators';
-
 Vue.component("todo-list", {
     data: function () {
         return {
@@ -68,12 +66,6 @@ Vue.component("todo-list", {
 
         addNewTodoItem: function () {
             var text = this.newTodoText.trim();
-
-            if (text.length === 0) {
-                this.newTodoText = "";
-
-                return;
-            }
 
             this.items.push({
                 id: this.newId,
