@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="node_modules/vue/dist/vue.min.js"></script>
+    <script defer src="node_modules/vuelidate/dist/vuelidate.min.js"></script>
+    <script defer src="script.js"></script>
+
+    <title>TotoList</title>
+</head>
+<body>
+<div class="container">
+    <div v-cloak id="app">
+        <todo-list></todo-list>
+    </div>
+</div>
+
+<script id="todo-list-template" type="text/x-template">
+    <div>
+        <h1 class="mb-3">Список дел</h1>
+
+        <form class="needs-validation mb-4" novalidate id="inputForm">
+            <div class="form-row no-gutters">
+                <div class="col pr-2">
+                    <input v-model="newTodoText" class="status mb-2" type="text"
+                           aria-label="Введите текст" placeholder="Введите текст"/>
+                    <pre>{{ $v }}</pre>
+                </div>
+
+                <div class="col-auto">
+                    <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2">Добавить</button>
+                </div>
+            </div>
+        </form>
+
+        <ul>
+            <todo-list-item class="py-2"
+                            v-for="item in items"
+                            @delete-item="deleteItem"
+                            @save-item="saveItem"
+                            :item="item"
+                            :key="item.id"></todo-list-item>
+        </ul>
+    </div>
+</script>
+
+<script id="todo-list-item-template" type="text/x-template">
+    <li class="py-2">
+        <template v-if="isEditing">
+            <input v-model="editText" type="text" aria-label="Введите текст" placeholder="Введите текст"/>
+            <button @click="saveItem" class="btn btn-success" type="button">Сохранить</button>
+            <button @click="stopEditItem" class="btn btn-danger" type="button">Отмена</button>
+        </template>
+        <template v-else>
+            <span>{{ item.text }}</span>
+            <button @click="startEditItem" class="btn btn-warning" type="button">Редактировать</button>
+            <button @click="deleteItem" class="btn btn-danger" type="button">Удалить</button>
+        </template>
+    </li>
+</script>
+</body>
+</html>
