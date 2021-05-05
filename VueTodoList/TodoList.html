@@ -26,19 +26,15 @@
     <div>
         <h1 class="mb-3">Список дел</h1>
 
-        <div>
-            <div class="form-row no-gutters">
-                <div class="col pr-2">
-                    <input v-model.trim="$v.newTodoText.$model newTodoText" class="form__input mb-2 " type="text"
-                           aria-label="Введите текст" placeholder="Введите текст"/>
-                </div>
-                <div class="error" v-if="!$v.newTodoText.required">Field is required</div>
-                <div class="error" v-if="!$v.newTodoText.minLength">Name must have at least {{$v.newTodoText.$params.minLength.min}} letters.</div>
-                <tree-view :data="$v.name" :options="{rootObjectKey: '$v.newTodoText', maxDepth: 2}"></tree-view>
+        <div class="row no-gutters">
+            <div class="col pr-2">
+                <input v-model="$v.newTodoText.$model" class="status($v.newTodoText) mb-2" type="text"
+                       aria-label="Введите текст" placeholder="Введите текст"/>
+                <pre>{{ $v }}</pre>
+            </div>
 
-                <div class="col-auto">
-                    <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2">Добавить</button>
-                </div>
+            <div class="col-auto">
+                <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2">Добавить</button>
             </div>
         </div>
 

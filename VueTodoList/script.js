@@ -1,4 +1,5 @@
-import { required, minLength} from 'node_modules/vuelidate/lib/validators'
+Vue.use(window.vuelidate.default);
+const { required, minLength } = window.validators;
 
 Vue.component("todo-list-item", {
     props: {
@@ -49,21 +50,7 @@ Vue.component("todo-list", {
 
     template: "#todo-list-template",
 
-    validations: {
-        newTodoText: {
-            required,
-            minLength: minLength(1)
-        }
-    },
-
     methods: {
-        status(validation) {
-            return {
-                error: validation.$error,
-                dirty: validation.$dirty
-            }
-        },
-
         addNewTodoItem: function () {
             var text = this.newTodoText.trim();
 
@@ -89,5 +76,23 @@ Vue.component("todo-list", {
 });
 
 new Vue({
-    el: "#app"
+    el: "#app",
+
+    data: {
+        newTodoText: ''
+    },
+    validations: {
+        newTodoText: {
+            required,
+            minLength: minLength(1)
+        }
+    },
+    methods: {
+        status(validation) {
+            return {
+                error: validation.$error,
+                dirty: validation.$dirty
+            }
+        }
+    }
 });

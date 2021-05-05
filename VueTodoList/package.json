@@ -1,0 +1,19 @@
+{
+  "name": "VueTodoList",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "vuelidate": "^0.7.6",
+    "bootstrap": "^4.6.0",
+    "vue": "^2.6.12",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
