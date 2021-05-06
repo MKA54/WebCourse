@@ -11,6 +11,7 @@
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="node_modules/vue/dist/vue.min.js"></script>
     <script defer src="node_modules/vuelidate/dist/vuelidate.min.js"></script>
+    <script defer src="node_modules/vuelidate/dist/validators.min.js"></script>
     <script defer src="script.js"></script>
 
     <title>TotoList</title>
@@ -28,9 +29,8 @@
 
         <div class="row no-gutters">
             <div class="col pr-2">
-                <input v-model="$v.newTodoText.$model" class="status($v.newTodoText) mb-2" type="text"
+                <input v-model="newTodoText" class="form-control mb-2" type="text"
                        aria-label="Введите текст" placeholder="Введите текст"/>
-                <pre>{{ $v }}</pre>
             </div>
 
             <div class="col-auto">
