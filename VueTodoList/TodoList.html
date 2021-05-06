@@ -29,8 +29,9 @@
 
         <div class="row no-gutters">
             <div class="col pr-2">
-                <input v-model="newTodoText" class="form-control mb-2" type="text"
+                <input v-model="$v.newTodoText.$model" :class="status ($v.newTodoText) form-control mb-2" type="text"
                        aria-label="Введите текст" placeholder="Введите текст"/>
+                <pre> {{ $v }} </pre>
             </div>
 
             <div class="col-auto">
