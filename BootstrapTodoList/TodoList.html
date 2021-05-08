@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
 
     <script defer src="node_modules/jquery/dist/jquery.js"></script>
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
@@ -17,9 +16,9 @@
 <div class="container bg-light border border-dark">
     <h1 class="mb-4 text-center">Список дел</h1>
 
-    <form class="needs-validation mb-4" novalidate id="inputForm">
+    <form class="needs-validation mb-4" novalidate id="input_form">
         <div class="form-row no-gutters">
-            <div class="col-10">
+            <div class="col-md-10 mb-2">
                 <input type="text" class="form-control" id="new_todo_text"
                        aria-label="Введите текст" placeholder="Введите текст" required/>
                 <div class="col-4 pl-0 invalid-feedback" id="error_message">
@@ -32,11 +31,11 @@
         </div>
     </form>
 
-    <form class="needs-validation mb-4" novalidate id="listForm">
+    <form class="needs-validation mb-4" novalidate id="list_form">
         <ul class="list-group" id="list"></ul>
     </form>
 
-    <div class="modal" tabindex="-1" role="dialog" id="modalTemplate">
+    <div class="modal" tabindex="-1" role="dialog" id="modal_template">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

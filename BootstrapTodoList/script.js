@@ -3,7 +3,7 @@
 $(document).ready(function () {
     var nextTodoTextField = $("#new_todo_text");
     var list = $("#list");
-    var inputForm = $("#inputForm");
+    var inputForm = $("#input_form");
 
     $("#add_button").click(function () {
         var text = nextTodoTextField.val().trim();
@@ -25,12 +25,12 @@ $(document).ready(function () {
             var initialText = listItem.find(".text").text(text);
 
             listItem.find(".delete_button").click(function () {
-                $("#modalTemplate").modal("show");
+                $("#modal_template").modal("show");
 
                 $("#deleteButton").click(function () {
                     listItem.remove();
 
-                    $("#modalTemplate").modal("hide");
+                    $("#modal_template").modal("hide");
                 });
             });
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
                 listItem.find(".edit_text").val(text);
 
                 listItem.find(".save_button").click(function () {
-                    var listForm = $("#listForm");
+                    var listForm = $("#list_form");
 
                     text = listItem.find(".edit_text").val().trim();
 
