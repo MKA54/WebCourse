@@ -28,10 +28,13 @@
         <h1 class="mb-3">Список дел</h1>
 
         <div class="row no-gutters">
-            <div class="col pr-2">
-                <input v-model="$v.newTodoText.$model" :class="status ($v.newTodoText) mb-2" type="text"
+            <div class="form-group col pr-2" :class="{'form-group--error': $v.newTodoText.$error}">
+                <input v-model.trim="$v.newTodoText.$model" class="form__input form-control mb-2" type="text"
                        aria-label="Введите текст" placeholder="Введите текст"/>
-                <pre> {{ $v }} </pre>
+
+                <div class="error" v-if="!$v.newTodoText.minLength">Введите текст</div>
+                <tree-view :data="$v.newTodoText" :options="{rootObjectKey: '$v.newTodoText', maxDepth: 2}"></tree-view>
+                <pre>{{ $v }}</pre>
             </div>
 
             <div class="col-auto">
