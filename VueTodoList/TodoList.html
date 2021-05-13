@@ -28,17 +28,20 @@
         <h1 class="mb-3">Список дел</h1>
 
         <div class="row no-gutters">
-            <div class="form-group col pr-2" :class="{'form-group--error': $v.newTodoText.$error}">
-                <input v-model.trim="$v.newTodoText.$model" class="form__input form-control mb-2" type="text"
-                       aria-label="Введите текст" placeholder="Введите текст"/>
+            <div class="col-10 mr-2">
+                <input v-model.trim="$v.newTodoText.$model"
+                       class="form-control mb-2"
+                       :class="status($v.newTodoText)"
+                       type="text"
+                       aria-label="Введите текст"
+                       placeholder="Введите текст"/>
+                <div class="errorMessage" v-if="!$v.newTodoText.required">Введите текст</div>
 
-                <div class="error" v-if="!$v.newTodoText.minLength">Введите текст</div>
-                <tree-view :data="$v.newTodoText" :options="{rootObjectKey: '$v.newTodoText', maxDepth: 2}"></tree-view>
                 <pre>{{ $v }}</pre>
             </div>
 
             <div class="col-auto">
-                <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2">Добавить</button>
+                <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2" :disabled="!$v.newTodoText.required">Добавить</button>
             </div>
         </div>
 

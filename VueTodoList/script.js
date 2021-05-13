@@ -1,5 +1,5 @@
 Vue.use(window.vuelidate.default);
-const {minLength} = window.validators;
+const {required} = window.validators;
 
 Vue.component("todo-list-item", {
     props: {
@@ -50,7 +50,7 @@ Vue.component("todo-list", {
 
     validations: {
         newTodoText: {
-            minLength: minLength(1)
+            required
         }
     },
 
@@ -65,10 +65,6 @@ Vue.component("todo-list", {
         },
 
         addNewTodoItem: function () {
-            if (this.$v.newTodoText.$error){
-                return;
-            }
-
             var text = this.newTodoText;
 
             this.items.push({
