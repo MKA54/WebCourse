@@ -44,7 +44,12 @@ Vue.component("todo-list", {
         return {
             items: [],
             newTodoText: "",
-            newId: 1
+            newId: 1,
+            hasError: false,
+            error: [
+                "error",
+                "dirty"
+            ]
         };
     },
 
@@ -65,6 +70,14 @@ Vue.component("todo-list", {
         },
 
         addNewTodoItem: function () {
+            if (this.$v.newTodoText.$invalid) {
+                this.hasError = true;
+
+                return
+            }
+
+            this.hasError = false;
+
             var text = this.newTodoText;
 
             this.items.push({

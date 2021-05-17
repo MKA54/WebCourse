@@ -31,17 +31,17 @@
             <div class="col-10 mr-2">
                 <input v-model.trim="$v.newTodoText.$model"
                        class="form-control mb-2"
-                       :class="status($v.newTodoText)"
+                       :class="{ error: hasError }"
                        type="text"
                        aria-label="Введите текст"
                        placeholder="Введите текст"/>
-                <div class="errorMessage" v-if="!$v.newTodoText.required">Введите текст</div>
+                <div class="errorMessage" v-if="hasError && !$v.newTodoText.required">Введите текст</div>
 
                 <pre>{{ $v }}</pre>
             </div>
 
             <div class="col-auto">
-                <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2" :disabled="!$v.newTodoText.required">Добавить</button>
+                <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2">Добавить</button>
             </div>
         </div>
 
