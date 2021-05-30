@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,13 +31,11 @@
             <div class="col-10 mr-2">
                 <input v-model.trim="$v.newTodoText.$model"
                        class="form-control mb-2"
-                       :class="{ error: hasError }"
+                       :class="status($v.newTodoText)"
                        type="text"
                        aria-label="Введите текст"
                        placeholder="Введите текст"/>
-                <div class="errorMessage" v-if="hasError && !$v.newTodoText.required">Введите текст</div>
-
-                <pre>{{ $v }}</pre>
+                <div class="errorMessage" v-if="$v.newTodoText.$error">Введите текст</div>
             </div>
 
             <div class="col-auto">
@@ -48,10 +46,13 @@
         <ul>
             <todo-list-item class="py-2"
                             v-for="item in items"
-                            @delete-item="deleteItem"
+                            @delete-item="deleteItemConfirm"
                             @save-item="saveItem"
                             :item="item"
-                            :key="item.id"></todo-list-item>
+                            :key="item.id">
+            </todo-list-item>
+
+            <modal @ok="deleteItem" ref="confirmDeleteDialog"></modal>
         </ul>
     </div>
 </script>
@@ -59,9 +60,22 @@
 <script id="todo-list-item-template" type="text/x-template">
     <li class="py-2">
         <template v-if="isEditing">
-            <input v-model="editText" type="text" aria-label="Введите текст" placeholder="Введите текст"/>
-            <button @click="saveItem" class="btn btn-success" type="button">Сохранить</button>
-            <button @click="stopEditItem" class="btn btn-danger" type="button">Отмена</button>
+            <div class="row no-gutters">
+                <div class="d-inline-block">
+                    <input v-model.trim="$v.editText.$model"
+                           :class="status($v.editText)"
+                           type="text"
+                           aria-label="Введите текст"
+                           placeholder="Введите текст"/>
+
+                    <div class="errorMessage" v-if="$v.editText.$error">Введите текст</div>
+                </div>
+
+                <div class="d-inline-block">
+                    <button @click="saveItem" class="btn btn-success mx-2" type="button">Сохранить</button>
+                    <button @click="stopEditItem" class="btn btn-danger" type="button">Отмена</button>
+                </div>
+            </div>
         </template>
         <template v-else>
             <span>{{ item.text }}</span>
@@ -69,6 +83,28 @@
             <button @click="deleteItem" class="btn btn-danger" type="button">Удалить</button>
         </template>
     </li>
+</script>
+
+<script type="text/x-template" id="modal-template">
+    <div ref="modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Подтверждение удаления записи.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Вы действительно хотите удалить запись?</p>
+                </div>
+                <div class="modal-footer">
+                    <button @click="ok" type="button" class="btn btn-primary">Удалить</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Выход</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </script>
 </body>
 </html>

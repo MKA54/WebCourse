@@ -4,8 +4,7 @@ const {required} = window.validators;
 Vue.component("todo-list-item", {
     props: {
         item: {
-            type: Object,
-            required: true
+            type: Object
         }
     },
 
@@ -16,9 +15,22 @@ Vue.component("todo-list-item", {
         };
     },
 
+    validations: {
+        editText: {
+            required
+        }
+    },
+
     template: "#todo-list-item-template",
 
     methods: {
+        status(validation) {
+            return {
+                error: validation.$error,
+                dirty: validation.$dirty
+            }
+        },
+
         startEditItem: function () {
             this.editText = this.item.text;
             this.isEditing = true;
@@ -29,6 +41,14 @@ Vue.component("todo-list-item", {
         },
 
         saveItem: function () {
+            this.$v.$touch();
+
+            if (this.$v.editText.$invalid) {
+                return;
+            }
+
+            this.$v.$reset();
+
             this.isEditing = false;
             this.$emit("save-item", this.item, this.editText);
         },
@@ -45,11 +65,7 @@ Vue.component("todo-list", {
             items: [],
             newTodoText: "",
             newId: 1,
-            hasError: false,
-            error: [
-                "error",
-                "dirty"
-            ]
+            itemForDelete: ""
         };
     },
 
@@ -70,13 +86,13 @@ Vue.component("todo-list", {
         },
 
         addNewTodoItem: function () {
-            if (this.$v.newTodoText.$invalid) {
-                this.hasError = true;
+            this.$v.$touch();
 
-                return
+            if (this.$v.newTodoText.$invalid) {
+                return;
             }
 
-            this.hasError = false;
+            this.$v.$reset();
 
             var text = this.newTodoText;
 
@@ -89,14 +105,36 @@ Vue.component("todo-list", {
             this.newId++;
         },
 
-        deleteItem: function (item) {
-            this.items = this.items.filter(function (element) {
-                return element !== item;
-            });
-        },
-
         saveItem: function (item, newText) {
             item.text = newText;
+        },
+
+        deleteItemConfirm: function (item) {
+            this.itemForDelete = item;
+
+            this.$refs.confirmDeleteDialog.show();
+        },
+
+        deleteItem: function () {
+            this.items = this.items.filter(function (element) {
+                return element !== this.itemForDelete;
+            });
+        }
+    }
+});
+
+Vue.component("modal", {
+    template: "#modal-template",
+
+    methods: {
+        show: function () {
+            $(this.$refs.modal).modal("show");
+        },
+
+        ok: function () {
+            this.$emit("ok");
+
+            $(this.$refs.modal).modal("hide");
         }
     }
 });
