@@ -118,7 +118,9 @@ Vue.component("todo-list", {
         deleteItem: function () {
             this.items = this.items.filter(function (element) {
                 return element !== this.itemForDelete;
-            });
+            }, this);
+
+            this.itemForDelete = "";
         }
     }
 });
