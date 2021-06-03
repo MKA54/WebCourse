@@ -3,30 +3,32 @@
 {% block body %}
     {% verbatim %}
 <div id="app">
-<h1>Телефонная книга</h1>
+    <h1>Телефонная книга</h1>
 
-<div>
+    <div>
 
-</div>
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>№</th>
-            <th>Имя</th>
-            <th>Телефон</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-         </tr>
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr v-for="(contact, index) in contacts" :key="contact.id">
+                <td>{{ index + 1 }}.</td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>
+                    <button type="button" title="Удалить" class="btn btn-danger">X</button>
+                </td>
+             </tr>
+        </tbody>
+    </table>
 </div>
     {% endverbatim %}
 {% endblock %}
