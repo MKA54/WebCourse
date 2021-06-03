@@ -1,7 +1,8 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-  {% verbatim %}
+    {% verbatim %}
+<div id="app">
 <h1>Телефонная книга</h1>
 
 <div>
@@ -17,7 +18,6 @@
             <th></th>
         </tr>
     </thead>
-
     <tbody>
          <tr>
             <td></td>
@@ -27,5 +27,6 @@
          </tr>
     </tbody>
 </table>
-  {% endverbatim %}
+</div>
+    {% endverbatim %}
 {% endblock %}
