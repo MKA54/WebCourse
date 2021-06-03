@@ -15,7 +15,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="9">
+          <list size="14">
             <item index="0" class="java.lang.String" itemvalue="type" />
             <item index="1" class="java.lang.String" itemvalue="v-for" />
             <item index="2" class="java.lang.String" itemvalue="v-model" />
@@ -25,6 +25,11 @@
             <item index="6" class="java.lang.String" itemvalue="v-if" />
             <item index="7" class="java.lang.String" itemvalue="v-else" />
             <item index="8" class="java.lang.String" itemvalue="v-model.trim" />
+            <item index="9" class="java.lang.String" itemvalue="@click.prevent" />
+            <item index="10" class="java.lang.String" itemvalue="v-slot:title" />
+            <item index="11" class="java.lang.String" itemvalue="v-slot:ok-button-text" />
+            <item index="12" class="java.lang.String" itemvalue="v-slot:cancel-button-text" />
+            <item index="13" class="java.lang.String" itemvalue="v-slot:cancel-button" />
           </list>
         </value>
       </option>
@@ -33,7 +38,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="13">
+          <list size="16">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -47,6 +52,9 @@
             <item index="10" class="java.lang.String" itemvalue="todo-list" />
             <item index="11" class="java.lang.String" itemvalue="todo-list-item" />
             <item index="12" class="java.lang.String" itemvalue="tree-view" />
+            <item index="13" class="java.lang.String" itemvalue="slot" />
+            <item index="14" class="java.lang.String" itemvalue="button.button" />
+            <item index="15" class="java.lang.String" itemvalue="modal" />
           </list>
         </value>
       </option>
