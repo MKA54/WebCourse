@@ -26,3 +26,7 @@ input {
 .error:focus {
     outline-color: #F99;
 }
+
+[v-cloak]{
+    display: none;
+}
