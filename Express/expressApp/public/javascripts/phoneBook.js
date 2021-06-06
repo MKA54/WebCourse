@@ -26,6 +26,28 @@ function PhoneBookService() {
     };
 }
 
+Vue.component("modal", {
+    template: "#modal-template",
+
+    data: function () {
+        return {
+            onOk: null
+        }
+    },
+
+    methods: {
+        show: function (onOk) {
+            this.onOk = onOk;
+            $(this.$refs.modal).modal("show");
+        },
+
+        ok: function () {
+            this.onOk();
+            $(this.$refs.modal).modal("hide");
+        }
+    }
+});
+
 new Vue({
     el: "#app",
 
@@ -88,18 +110,20 @@ new Vue({
             });
         },
 
-        deleteContact: function (contact) {
+        deleteContactConfirm: function (contact) {
             var self = this;
 
-            this.service.deleteContact(contact.id).done(function (response) {
-                if (!response.success) {
-                    alert(response.message);
-                    return;
-                }
+            this.$refs.confirmDeleteDialog.show(function (){
+                self.service.deleteContact(contact.id).done(function (response) {
+                    if (!response.success) {
+                        alert(response.message);
+                        return;
+                    }
 
-                self.loadContacts();
-            }).fail(function () {
-                alert("Не удалось удалить контакт");
+                    self.loadContacts();
+                }).fail(function () {
+                    alert("Не удалось удалить контакт");
+                });
             });
         }
     }

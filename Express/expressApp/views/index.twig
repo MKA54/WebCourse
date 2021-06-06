@@ -49,11 +49,51 @@
                 <td>{{ contact.name }}</td>
                 <td>{{ contact.phone }}</td>
                 <td>
-                    <button @click="deleteContact(contact)" type="button" title="Удалить" class="btn btn-danger">X</button>
+                    <button @click="deleteContactConfirm(contact)" type="button" title="Удалить" class="btn btn-danger">X</button>
                 </td>
              </tr>
         </tbody>
     </table>
+
+    <modal ref="confirmDeleteDialog">
+                <p>Вы действительно хотите удалить запись?</p>
+
+                <template v-slot:ok-button-text>
+                    Удалить
+                </template>
+                <template v-slot:cancel-button>
+                    Выход
+                </template>
+    </modal>
 </div>
+
+<script type="text/x-template" id="modal-template">
+    <div ref="modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <slot name="title"></slot>
+                        Подтверждение удаления записи.
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <slot></slot>
+                </div>
+                <div class="modal-footer">
+                    <button @click="ok" type="button" class="btn btn-primary">
+                        <slot name="ok-button-text"></slot>
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <slot name="cancel-button"></slot>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
     {% endverbatim %}
 {% endblock %}
