@@ -2,14 +2,39 @@
 
 {% block body %}
     {% verbatim %}
-<div id="app">
-    <h1>Телефонная книга</h1>
+<div class="container" v-cloak id="app">
+    <h1 class="mb-4">Телефонная книга</h1>
 
-    <div>
+    <form class="mb-4">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                     <label>Имя</label>
+                     <input v-model="name" type="text" class="form-control">
+                 </div>
+                <div class="form-group">
+                     <label>Телефон</label>
+                     <input v-model="phone" type="text" class="form-control">
+                </div>
 
+                <button @click="addContact" class="btn btn-primary" type="button">Добавить</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="mb-4 form-inline">
+        <div class="row no-gutters">
+           <div class="col-12 col-lg-auto mb-2 mr-2">
+                <input class="form-control" placeholder="Поиск" v-model="term" type="text" />
+           </div>
+           <div class="col mb-2">
+                <button @click="loadContacts" class="btn btn-primary" type="button">Поиск</button>
+                <button @click="clearSearch" class="btn btn-secondary" type="button">Очистить</button>
+           </div>
+        </div>
     </div>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>№</th>
@@ -24,11 +49,11 @@
                 <td>{{ contact.name }}</td>
                 <td>{{ contact.phone }}</td>
                 <td>
-                    <button type="button" title="Удалить" class="btn btn-danger">X</button>
+                    <button @click="deleteContact(contact)" type="button" title="Удалить" class="btn btn-danger">X</button>
                 </td>
              </tr>
         </tbody>
     </table>
-</div>
+</divv-cloak>
     {% endverbatim %}
 {% endblock %}

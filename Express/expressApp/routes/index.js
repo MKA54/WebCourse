@@ -16,7 +16,7 @@ router.get("/api/getContacts", function (req, res) {
     res.send(result);
 });
 
-router.post("api/deleteContact", function (req, res) {
+router.post("/api/deleteContact", function (req, res) {
     var id = req.body.id;
 
     contacts = contacts.filter(function (c) {
@@ -29,7 +29,7 @@ router.post("api/deleteContact", function (req, res) {
     });
 });
 
-router.post("api/createContact", function (req, res) {
+router.post("/api/createContact", function (req, res) {
     var contact = req.body.contact;
 
     if (!contact) {
@@ -53,7 +53,7 @@ router.post("api/createContact", function (req, res) {
         });
     }
 
-    if (contact.some(function (c) {
+    if (contacts.some(function (c) {
         return c.phone.toUpperCase() === contact.phone.toUpperCase();
     })) {
         res.send({
