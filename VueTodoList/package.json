@@ -4,10 +4,10 @@
   "description": "",
   "main": "script.js",
   "dependencies": {
-    "vuelidate": "^0.7.6",
     "bootstrap": "^4.6.0",
-    "vue": "^2.6.12",
-    "jquery": "^3.6.0"
+    "bootstrap-vue": "^2.21.2",
+    "jquery": "^3.6.0",
+    "vue": "^2.6.12"
   },
   "devDependencies": {},
   "scripts": {

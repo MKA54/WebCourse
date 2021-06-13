@@ -1,6 +1,3 @@
-Vue.use(window.vuelidate.default);
-const {required} = window.validators;
-
 Vue.component("todo-list-item", {
     props: {
         item: {
@@ -11,26 +8,14 @@ Vue.component("todo-list-item", {
     data: function () {
         return {
             isEditing: false,
-            editText: ""
+            editText: "",
+            saveError: false
         };
-    },
-
-    validations: {
-        editText: {
-            required
-        }
     },
 
     template: "#todo-list-item-template",
 
     methods: {
-        status(validation) {
-            return {
-                error: validation.$error,
-                dirty: validation.$dirty
-            }
-        },
-
         startEditItem: function () {
             this.editText = this.item.text;
             this.isEditing = true;
@@ -41,14 +26,15 @@ Vue.component("todo-list-item", {
         },
 
         saveItem: function () {
-            this.$v.$touch();
+            var listForm = $("#list_form");
 
-            if (this.$v.editText.$invalid) {
+            if (listForm[0].checkValidity() === false || this.editText.length === 0) {
+                this.saveError = true;
+
                 return;
             }
 
-            this.$v.$reset();
-
+            this.saveError = false;
             this.isEditing = false;
             this.$emit("save-item", this.item, this.editText);
         },
@@ -65,36 +51,28 @@ Vue.component("todo-list", {
             items: [],
             newTodoText: "",
             newId: 1,
-            itemForDelete: ""
+            itemForDelete: "",
+            addError: true
         };
-    },
-
-    validations: {
-        newTodoText: {
-            required
-        }
     },
 
     template: "#todo-list-template",
 
     methods: {
-        status(validation) {
-            return {
-                error: validation.$error,
-                dirty: validation.$dirty
-            }
-        },
-
         addNewTodoItem: function () {
-            this.$v.$touch();
+            var inputForm = $("#input_form");
+            var text = this.newTodoText;
 
-            if (this.$v.newTodoText.$invalid) {
+            //inputForm.removeClass("was-validated");
+
+            if (inputForm[0].checkValidity() === false || text.length === 0) {
+                this.addError = true;
+                //inputForm.addClass("was-validated");
+
                 return;
             }
 
-            this.$v.$reset();
-
-            var text = this.newTodoText;
+            this.addError = false;
 
             this.items.push({
                 id: this.newId,
