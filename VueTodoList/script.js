@@ -8,8 +8,7 @@ Vue.component("todo-list-item", {
     data: function () {
         return {
             isEditing: false,
-            editText: "",
-            saveError: false
+            editText: ""
         };
     },
 
@@ -27,14 +26,14 @@ Vue.component("todo-list-item", {
 
         saveItem: function () {
             var listForm = $("#list_form");
+            listForm.removeClass("was-validated");
 
             if (listForm[0].checkValidity() === false || this.editText.length === 0) {
-                this.saveError = true;
+                listForm.addClass("was-validated");
 
                 return;
             }
 
-            this.saveError = false;
             this.isEditing = false;
             this.$emit("save-item", this.item, this.editText);
         },
@@ -51,8 +50,7 @@ Vue.component("todo-list", {
             items: [],
             newTodoText: "",
             newId: 1,
-            itemForDelete: "",
-            addError: true
+            itemForDelete: ""
         };
     },
 
@@ -63,16 +61,13 @@ Vue.component("todo-list", {
             var inputForm = $("#input_form");
             var text = this.newTodoText;
 
-            //inputForm.removeClass("was-validated");
+            inputForm.removeClass("was-validated");
 
             if (inputForm[0].checkValidity() === false || text.length === 0) {
-                this.addError = true;
-                //inputForm.addClass("was-validated");
+                inputForm.addClass("was-validated");
 
                 return;
             }
-
-            this.addError = false;
 
             this.items.push({
                 id: this.newId,

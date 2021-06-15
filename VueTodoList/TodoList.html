@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/bootstrap-vue/dist/bootstrap-vue.min.css">
     <link rel="stylesheet" href="style.css">
 
     <script defer src="node_modules/jquery/dist/jquery.min.js"></script>
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="node_modules/vue/dist/vue.min.js"></script>
-    <script defer src="node_modules/bootstrap-vue/dist/bootstrap-vue.js"></script>
     <script defer src="script.js"></script>
 
     <title>TotoList</title>
@@ -27,28 +25,27 @@
     <div>
         <h1 class="mb-3">Список дел</h1>
 
-        <b-form class="mb-4" novalidate="true" id="input_form">
-            <div class="row no-gutters">
+        <form class="mb-4 needs-validation" novalidate id="input_form">
+            <div class="form-row no-gutters">
                 <div class="col-10 mr-2">
-                    <b-form-input v-model.trim="newTodoText"
-                                  class="form-control mb-2"
-                                  type="text"
-                                  aria-label="Введите текст"
-                                  placeholder="Введите текст">
-                        required
-                    </b-form-input>
-                    <b-form-invalid-feedback v-if="addError">
+                    <input v-model.trim="newTodoText"
+                           class="form-control mb-2"
+                           type="text"
+                           aria-label="Введите текст"
+                           placeholder="Введите текст"
+                           required/>
+                    <div class="invalid-feedback">
                         Введите текст.
-                    </b-form-invalid-feedback>
+                    </div>
                 </div>
 
                 <div class="col-auto">
                     <button @click="addNewTodoItem" type="button" class="btn btn-primary mb-2">Добавить</button>
                 </div>
             </div>
-        </b-form>
+        </form>
 
-        <b-form class="mb-4" novalidate="true" id="list_form">
+        <form class="mb-4 needs-validation" novalidate id="list_form">
             <ul>
                 <todo-list-item class="py-2"
                                 v-for="item in items"
@@ -68,24 +65,25 @@
                     </template>
                 </modal>
             </ul>
-        </b-form>
+        </form>
     </div>
 </script>
 
 <script id="todo-list-item-template" type="text/x-template">
     <li class="py-2">
         <template v-if="isEditing">
-            <div class="row no-gutters">
+            <div class="form-row no-gutters">
                 <div class="d-inline-block">
-                    <b-form-input v-model.trim="editText"
-                                  type="text"
-                                  aria-label="Введите текст"
-                                  placeholder="Введите текст"
-                                  required></b-form-input>
+                    <input v-model.trim="editText"
+                           class="form-control"
+                           type="text"
+                           aria-label="Введите текст"
+                           placeholder="Введите текст"
+                           required/>
 
-                    <b-form-invalid-feedback v-if="saveError">
+                    <div class="invalid-feedback">
                         Введите текст
-                    </b-form-invalid-feedback>
+                    </div>
                 </div>
 
                 <div class="d-inline-block">
