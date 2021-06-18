@@ -80,18 +80,34 @@ new Vue({
         },
 
         addContact: function () {
-            if (!this.name) {
-                return;
-            }
-
-            if (!this.phone) {
-                return;
-            }
-
             var contact = {
                 name: this.name,
                 phone: this.phone
             }
+
+            var inputForm = $("#input_form");
+
+            inputForm.removeClass("was-validated");
+
+            var phoneErrorMessage = $("#phone_error");
+
+            if (inputForm[0].checkValidity() === false || this.name.length === 0 || this.phone === "") {
+                inputForm.addClass("was-validated");
+                phoneErrorMessage.text("Введите номер телефона.");
+
+                return;
+            }
+
+            var regularExpression = /(8)(\d{10})/;
+
+            if (!regularExpression.test(this.phone)) {
+                inputForm.addClass("was-validated");
+                phoneErrorMessage.text("Введите в формате 8хххххххххх");
+
+                return;
+            }
+
+            phoneErrorMessage.text("");
 
             var self = this;
 
@@ -113,7 +129,7 @@ new Vue({
         deleteContactConfirm: function (contact) {
             var self = this;
 
-            this.$refs.confirmDeleteDialog.show(function (){
+            this.$refs.confirmDeleteDialog.show(function () {
                 self.service.deleteContact(contact.id).done(function (response) {
                     if (!response.success) {
                         alert(response.message);
