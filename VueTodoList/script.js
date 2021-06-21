@@ -25,7 +25,7 @@ Vue.component("todo-list-item", {
         },
 
         saveItem: function () {
-            var listForm = $("#list_form");
+            var listForm = $(this.$refs.item);
             listForm.removeClass("was-validated");
 
             if (listForm[0].checkValidity() === false || this.editText.length === 0) {
@@ -58,7 +58,7 @@ Vue.component("todo-list", {
 
     methods: {
         addNewTodoItem: function () {
-            var inputForm = $("#input_form");
+            var inputForm = $(this.$refs.inputForm);
             var text = this.newTodoText;
 
             inputForm.removeClass("was-validated");

@@ -15,7 +15,7 @@
     <title>TotoList</title>
 </head>
 <body>
-<div class="container bg-light border border-dark">
+<div class="container bg-light border border-dark mt-2">
     <div v-cloak id="app">
         <todo-list></todo-list>
     </div>
@@ -25,9 +25,9 @@
     <div>
         <h1 class="mb-3">Список дел</h1>
 
-        <form class="mb-4 needs-validation" novalidate id="input_form">
+        <form class="mb-4 needs-validation" novalidate ref="inputForm">
             <div class="form-row no-gutters">
-                <div class="col-10 mr-2">
+                <div class="col mr-2">
                     <input v-model.trim="newTodoText"
                            class="form-control mb-2"
                            type="text"
@@ -45,12 +45,13 @@
             </div>
         </form>
 
-        <form class="mb-4 needs-validation" novalidate id="list_form">
+        <form class="mb-4 needs-validation" novalidate>
             <ul>
                 <todo-list-item class="py-2"
                                 v-for="item in items"
                                 @delete-item="deleteItemConfirm"
                                 @save-item="saveItem"
+                                ref="item"
                                 :item="item"
                                 :key="item.id">
                 </todo-list-item>
