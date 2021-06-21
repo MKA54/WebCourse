@@ -86,10 +86,10 @@ new Vue({
                 phone: this.phone
             }
 
-            var inputForm = $("#input_form");
+            var inputForm = $(this.$refs.inputForm);
             inputForm.removeClass("was-validated");
 
-            var errorMessage = $("#error_message")
+            var errorMessage = $(this.$refs.errorMessage)
 
             if (inputForm[0].checkValidity() === false) {
                 inputForm.addClass("was-validated");
