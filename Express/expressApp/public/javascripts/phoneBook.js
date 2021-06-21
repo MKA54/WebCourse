@@ -95,7 +95,7 @@ new Vue({
                 inputForm.addClass("was-validated");
 
                 if (this.phone === "") {
-                    errorMessage.text("Введите номер телефона");
+                    errorMessage.text("Введите номер телефона.");
                     return;
                 }
 
