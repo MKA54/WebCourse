@@ -21,10 +21,12 @@
                 <div class="form-group">
                      <label>Телефон</label>
                      <input v-model="phone"
-                            type="text"
+                            type="tel"
                             class="form-control"
+                            pattern="(8)(\d{10})"
                             required/>
-                     <span class="invalid-feedback" id="phone_error">
+                     <span class="invalid-feedback"">
+                         Введите номер телефона в формате 8хххххххххх.
                      </span>
                 </div>
 

@@ -56,6 +56,7 @@ new Vue({
         name: "",
         phone: "",
         term: "",
+
         service: new PhoneBookService()
     },
 
@@ -86,28 +87,12 @@ new Vue({
             }
 
             var inputForm = $("#input_form");
-
             inputForm.removeClass("was-validated");
 
-            var phoneErrorMessage = $("#phone_error");
-
-            if (inputForm[0].checkValidity() === false || this.name.length === 0 || this.phone === "") {
+            if (inputForm[0].checkValidity() === false) {
                 inputForm.addClass("was-validated");
-                phoneErrorMessage.text("Введите номер телефона.");
-
                 return;
             }
-
-            var regularExpression = /(8)(\d{10})/;
-
-            if (!regularExpression.test(this.phone)) {
-                inputForm.addClass("was-validated");
-                phoneErrorMessage.text("Введите в формате 8хххххххххх");
-
-                return;
-            }
-
-            phoneErrorMessage.text("");
 
             var self = this;
 
