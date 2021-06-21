@@ -89,8 +89,18 @@ new Vue({
             var inputForm = $("#input_form");
             inputForm.removeClass("was-validated");
 
+            var errorMessage = $("#error_message")
+
             if (inputForm[0].checkValidity() === false) {
                 inputForm.addClass("was-validated");
+
+                if (this.phone === "") {
+                    errorMessage.text("Введите номер телефона");
+                    return;
+                }
+
+                errorMessage.text("Введите номер телефона в формате 8хххххххххх.");
+
                 return;
             }
 
