@@ -51,10 +51,11 @@
                                 v-for="item in items"
                                 @delete-item="deleteItemConfirm"
                                 @save-item="saveItem"
-                                ref="item"
                                 :item="item"
                                 :key="item.id">
+                                ref="items"
                 </todo-list-item>
+
                 <modal @ok="deleteItem" ref="confirmDeleteDialog">
                     <p>Вы действительно хотите удалить запись?</p>
 
@@ -73,7 +74,7 @@
 <script id="todo-list-item-template" type="text/x-template">
     <li class="py-2">
         <template v-if="isEditing">
-            <div class="form-row no-gutters">
+            <div class="d-inline-block">
                 <div class="d-inline-block">
                     <input v-model.trim="editText"
                            class="form-control"
@@ -87,10 +88,8 @@
                     </div>
                 </div>
 
-                <div class="d-inline-block">
-                    <button @click="saveItem" class="btn btn-success mx-2" type="button">Сохранить</button>
-                    <button @click="stopEditItem" class="btn btn-danger" type="button">Отмена</button>
-                </div>
+                <button @click="saveItem" class="btn btn-success mx-2" type="button">Сохранить</button>
+                <button @click="stopEditItem" class="btn btn-danger" type="button">Отмена</button>
             </div>
         </template>
         <template v-else>

@@ -1,7 +1,8 @@
 Vue.component("todo-list-item", {
     props: {
         item: {
-            type: Object
+            type: Object,
+            required: true
         }
     },
 
@@ -25,7 +26,11 @@ Vue.component("todo-list-item", {
         },
 
         saveItem: function () {
-            var listForm = $(this.$refs.item);
+            console.log(this.item);
+
+            var listForm = $(this.$refs.items[this.item.id]);
+
+            console.log(listForm);
             listForm.removeClass("was-validated");
 
             if (listForm[0].checkValidity() === false || this.editText.length === 0) {
