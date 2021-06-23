@@ -14,9 +14,7 @@
                             type="text"
                             class="form-control"
                             required/>
-                       <div class="invalid-feedback">
-                        Введите Имя.
-                       </div>
+                       <div class="invalid-feedback">Введите Имя.</div>
                  </div>
                 <div class="form-group">
                      <label>Телефон</label>
@@ -25,8 +23,7 @@
                             class="form-control"
                             pattern="(8)(\d{10})"
                             required/>
-                     <span class="invalid-feedback" ref="errorMessage">
-                     </span>
+                     <span class="invalid-feedback" ref="errorMessage"></span>
                 </div>
 
                 <button @click="addContact" class="btn btn-primary" type="button">Добавить</button>
@@ -70,12 +67,8 @@
     <modal ref="confirmDeleteDialog">
                 <p>Вы действительно хотите удалить запись?</p>
 
-                <template v-slot:ok-button-text>
-                    Удалить
-                </template>
-                <template v-slot:cancel-button>
-                    Выход
-                </template>
+                <template v-slot:ok-button-text>Удалить</template>
+                <template v-slot:cancel-button>Выход</template>
     </modal>
 </div>
 

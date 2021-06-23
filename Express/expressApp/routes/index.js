@@ -46,6 +46,15 @@ router.post("/api/createContact", function (req, res) {
         });
     }
 
+    var regularExpression = /(8)(\d{10})/;
+
+    if (!regularExpression.test(contact.phone)) {
+        res.send({
+            success: false,
+            message: "Введите телефон в формате 8хххххххххх"
+        });
+    }
+
     if (!contact.phone) {
         res.send({
             success: false,
