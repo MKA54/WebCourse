@@ -26,11 +26,8 @@ Vue.component("todo-list-item", {
         },
 
         saveItem: function () {
-            console.log(this.item);
-
             var listForm = $(this.$refs.items[this.item.id]);
 
-            console.log(listForm);
             listForm.removeClass("was-validated");
 
             if (listForm[0].checkValidity() === false || this.editText.length === 0) {
