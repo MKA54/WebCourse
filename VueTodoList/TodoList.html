@@ -48,10 +48,11 @@
         <form class="mb-4 needs-validation" novalidate>
             <ul>
                 <todo-list-item class="py-2"
-                                v-for="item in items"
+                                v-for="(item, index) in items"
                                 @delete-item="deleteItemConfirm"
                                 @save-item="saveItem"
                                 :item="item"
+                                :index="index"
                                 :key="item.id">
                                 ref="items"
                 </todo-list-item>

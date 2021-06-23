@@ -3,7 +3,9 @@ Vue.component("todo-list-item", {
         item: {
             type: Object,
             required: true
-        }
+        },
+
+        index: Number
     },
 
     data: function () {
@@ -26,7 +28,10 @@ Vue.component("todo-list-item", {
         },
 
         saveItem: function () {
-            var listForm = $(this.$refs.items[this.item.id]);
+            //console.log(this.index)
+            //console.log(this.item.id)
+
+            var listForm = $(this.$refs.items[this.index]); // items[this.item.id]
 
             listForm.removeClass("was-validated");
 
