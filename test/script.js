@@ -13,9 +13,9 @@ new Vue({
                 producingCountry: "China",
                 memorySize: "128 Гб",
                 screenRefreshRate: "60 Гц",
-                NFC: src="bad.jpg",
-                eSIM: src="ok.jpg",
-                wirelessCharging: src="ok.jpg",
+                NFC: src="public/bad.jpg",
+                eSIM: src="public/ok.jpg",
+                wirelessCharging: src="public/ok.jpg",
                 cost: "81 990 &#8381"
             },
             {
@@ -26,9 +26,9 @@ new Vue({
                 producingCountry: "China",
                 memorySize: "128 Гб",
                 screenRefreshRate: "60 Гц",
-                NFC: src="ok.jpg",
-                eSIM: src="ok.jpg",
-                wirelessCharging: src="bad.jpg",
+                NFC: src="public/ok.jpg",
+                eSIM: src="public/ok.jpg",
+                wirelessCharging: src="public/bad.jpg",
                 cost: "27 490 &#8381"
             },
             {
@@ -39,9 +39,9 @@ new Vue({
                 producingCountry: "Vietnam",
                 memorySize: "128 Гб",
                 screenRefreshRate: "90 Гц",
-                NFC: src="ok.jpg",
-                eSIM: src="bad.jpg",
-                wirelessCharging: src="ok.jpg",
+                NFC: src="public/ok.jpg",
+                eSIM: src="public/bad.jpg",
+                wirelessCharging: src="public/ok.jpg",
                 cost: "32 890 &#8381"
             },
             {
@@ -52,9 +52,9 @@ new Vue({
                 producingCountry: "Vietnam",
                 memorySize: "128 Гб",
                 screenRefreshRate: "120 Гц",
-                NFC: src="ok.jpg",
-                eSIM: src="ok.jpg",
-                wirelessCharging: src="ok.jpg",
+                NFC: src="public/ok.jpg",
+                eSIM: src="public/ok.jpg",
+                wirelessCharging: src="public/ok.jpg",
                 cost: "58 790 &#8381"
             },
             {
@@ -65,9 +65,9 @@ new Vue({
                 producingCountry: "China",
                 memorySize: "64 Гб",
                 screenRefreshRate: "60 Гц",
-                NFC: src="ok.jpg",
-                eSIM: src="ok.jpg",
-                wirelessCharging: src="ok.jpg",
+                NFC: src="public/ok.jpg",
+                eSIM: src="public/ok.jpg",
+                wirelessCharging: src="public/ok.jpg",
                 cost: "70 000 &#8381"
             },
             {
@@ -78,9 +78,9 @@ new Vue({
                 producingCountry: "China",
                 memorySize: "128 Гб",
                 screenRefreshRate: "60 Гц",
-                NFC: src="ok.jpg",
-                eSIM: src="bad.jpg",
-                wirelessCharging: src="bad.jpg",
+                NFC: src="public/ok.jpg",
+                eSIM: src="public/bad.jpg",
+                wirelessCharging: src="public/bad.jpg",
                 cost: "24 990 &#8381"
             }
         ]
