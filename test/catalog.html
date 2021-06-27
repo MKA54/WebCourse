@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <script defer src="node_modules/vue/dist/vue.min.js"></script>
+    <script defer src="script.js"></script>
+
+    <title>Каталог</title>
+</head>
+<body>
+<div class="container" id="app">
+    <div>
+        <h1>Смартфоны</h1>
+
+        <input type="radio" id="two" value=2 v-model="picked">
+        <label for="two">2</label>
+        <input type="radio" id="three" value=3 v-model="picked">
+        <label for="three">3</label>
+        <input type="radio" id="four" value=4 v-model="picked">
+        <label for="four">4</label>
+        <input type="radio" id="five" value=5 v-model="picked">
+        <label for="five">5</label>
+        <input type="radio" id="six" value=6 v-model="picked">
+        <label for="six">6</label>
+
+        <table class="table" id="table">
+            <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="checkbox" v-model="checked">
+                    <label for="checkbox">Показать различия</label>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>ПРОИЗВОДИТЕЛЬ</td>
+            </tr>
+            <tr>
+                <td>ГОД РЕЛИЗА</td>
+            </tr>
+            <tr>
+                <td>ДИАГОНАЛЬ ЭКРАНА (ДЮЙМ)</td>
+            </tr>
+            <tr>
+                <td>СТРАНА-ПРОИЗВОДИТЕЛЬ</td>
+            </tr>
+            <tr>
+                <td>ОБЪЕМ ПАМЯТИ</td>
+            </tr>
+            <tr>
+                <td>ЧАСТОТА ОБНОВЛЕНИЯ ЭКРАНА</td>
+            </tr>
+            <tr>
+                <td>NFC</td>
+            </tr>
+            <tr>
+                <td>ПОДДЕРЖКА ESIM</td>
+            </tr>
+            <tr>
+                <td>ПОДДЕРЖКА БЕСПРОВОДНОЙ ЗАРЯДКИ</td>
+            </tr>
+            <tr>
+                <td>СТОИМОСТЬ</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button @click="downloadsPhones" type="button" class="btn btn-primary mb-2">Добавить</button>
+    </div>
+</div>
+</body>
+</html>
