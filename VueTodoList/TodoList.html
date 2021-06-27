@@ -45,16 +45,14 @@
             </div>
         </form>
 
-        <form class="mb-4 needs-validation" novalidate>
-            <ul>
+        <form class="mb-4 needs-validation" novalidate ref="item">
+            <ul class="list-group">
                 <todo-list-item class="py-2"
                                 v-for="(item, index) in items"
                                 @delete-item="deleteItemConfirm"
                                 @save-item="saveItem"
                                 :item="item"
-                                :index="index"
                                 :key="item.id">
-                                ref="items"
                 </todo-list-item>
 
                 <modal @ok="deleteItem" ref="confirmDeleteDialog">
@@ -73,10 +71,10 @@
 </script>
 
 <script id="todo-list-item-template" type="text/x-template">
-    <li class="py-2">
+    <li class="list-group-item">
         <template v-if="isEditing">
-            <div class="d-inline-block">
-                <div class="d-inline-block">
+            <div class="form-row no-gutters">
+                <div class="col">
                     <input v-model.trim="editText"
                            class="form-control"
                            type="text"
@@ -89,8 +87,10 @@
                     </div>
                 </div>
 
+                <div class="col-auto">
                 <button @click="saveItem" class="btn btn-success mx-2" type="button">Сохранить</button>
                 <button @click="stopEditItem" class="btn btn-danger" type="button">Отмена</button>
+                </div>
             </div>
         </template>
         <template v-else>
