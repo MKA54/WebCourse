@@ -33,6 +33,7 @@
                 <label for="checkbox">Показать различия</label>
             </th>
             <th v-for="phone in uploadPhones" :key="phone.id">
+                <img :src=phone.phoneImage alt="Изображение телефона"><br>
                 {{phone.name}}
             </th>
         </tr>
@@ -77,17 +78,17 @@
         <tr>
             <td>NFC</td>
             <td v-for="phone in uploadPhones" :key="phone.id">
-                <img :src=phone.NFC alt="Наличие поддержки.jpg"></td>
+                <img :src=phone.NFC alt="Наличие поддержки функции"></td>
         </tr>
         <tr>
             <td>ПОДДЕРЖКА ESIM</td>
             <td v-for="phone in uploadPhones" :key="phone.id">
-                <img :src=phone.eSIM alt="Наличие поддержки.jpg"></td>
+                <img :src=phone.eSIM alt="Наличие поддержки функции"></td>
         </tr>
         <tr>
             <td>ПОДДЕРЖКА БЕСПРОВОДНОЙ ЗАРЯДКИ</td>
             <td v-for="phone in uploadPhones" :key="phone.id">
-                <img :src=phone.wirelessCharging alt="Наличие поддержки.jpg"></td>
+                <img :src=phone.wirelessCharging alt="Наличие поддержки функции"></td>
         </tr>
         <tr>
             <td>СТОИМОСТЬ</td>

@@ -6,6 +6,7 @@ new Vue({
         phonesCount: 3,
         telephones: [
             {
+                phoneImage: "public/Apple iphone 12.jpg",
                 name: "Apple iPhone 12",
                 producer: "Apple",
                 releaseYear: 2020,
@@ -19,6 +20,7 @@ new Vue({
                 cost: "81 990"
             },
             {
+                phoneImage: "public/xiaomi mi 11 lite.jpg",
                 name: "Xiaomi Mi 11 Lite",
                 producer: "Xiaomi",
                 releaseYear: 2021,
@@ -32,6 +34,7 @@ new Vue({
                 cost: "27 490"
             },
             {
+                phoneImage: "public/samsung galaxy a72.jpg",
                 name: "Samsung Galaxy A72",
                 producer: "Samsung",
                 releaseYear: 2021,
@@ -45,6 +48,7 @@ new Vue({
                 cost: "32 890"
             },
             {
+                phoneImage: "public/samsung galaxy s21.jpg",
                 name: "Samsung Galaxy S21",
                 producer: "Samsung",
                 releaseYear: 2021,
@@ -58,6 +62,7 @@ new Vue({
                 cost: "58 790"
             },
             {
+                phoneImage: "public/apple iphone xr.jpg",
                 name: "Apple iPhone Xr",
                 producer: "Apple",
                 releaseYear: 2018,
@@ -71,6 +76,7 @@ new Vue({
                 cost: "70 000"
             },
             {
+                phoneImage: "public/Realme 8 pro.jpg",
                 name: "Realme 8 Pro",
                 producer: "Realme",
                 releaseYear: 2021,
