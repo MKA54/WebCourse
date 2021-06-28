@@ -16,7 +16,7 @@ new Vue({
                 NFC: "public/bad.jpg",
                 eSIM: "public/ok.jpg",
                 wirelessCharging: "public/ok.jpg",
-                cost: "81 990 &#8381"
+                cost: "81 990"
             },
             {
                 name: "Xiaomi Mi 11 Lite",
@@ -29,7 +29,7 @@ new Vue({
                 NFC: "public/ok.jpg",
                 eSIM: "public/ok.jpg",
                 wirelessCharging: "public/bad.jpg",
-                cost: "27 490 &#8381"
+                cost: "27 490"
             },
             {
                 name: "Samsung Galaxy A72",
@@ -42,7 +42,7 @@ new Vue({
                 NFC: "public/ok.jpg",
                 eSIM: "public/bad.jpg",
                 wirelessCharging: "public/ok.jpg",
-                cost: "32 890 &#8381"
+                cost: "32 890"
             },
             {
                 name: "Samsung Galaxy S21",
@@ -55,7 +55,7 @@ new Vue({
                 NFC: "public/ok.jpg",
                 eSIM: "public/ok.jpg",
                 wirelessCharging: "public/ok.jpg",
-                cost: "58 790 &#8381"
+                cost: "58 790"
             },
             {
                 name: "Apple iPhone Xr",
@@ -68,7 +68,7 @@ new Vue({
                 NFC: "public/ok.jpg",
                 eSIM: "public/ok.jpg",
                 wirelessCharging: "public/ok.jpg",
-                cost: "70 000 &#8381"
+                cost: "70 000"
             },
             {
                 name: "Realme 8 Pro",
@@ -81,7 +81,7 @@ new Vue({
                 NFC: "public/ok.jpg",
                 eSIM: "public/bad.jpg",
                 wirelessCharging: "public/bad.jpg",
-                cost: "24 990 &#8381"
+                cost: "24 990"
             }
         ]
     },
