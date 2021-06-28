@@ -3,7 +3,7 @@ new Vue({
 
     data: {
         checked: false,
-        picked: 3,
+        phonesCount: 3,
         telephones: [
             {
                 name: "Apple iPhone 12",
@@ -83,8 +83,22 @@ new Vue({
                 wirelessCharging: "public/bad.jpg",
                 cost: "24 990"
             }
-        ]
+        ],
+
+        uploadPhones: []
     },
 
-    methods: {}
+    created: function(){
+        this.uploadPhonesList()
+    },
+
+    methods: {
+        uploadPhonesList: function () {
+            this.uploadPhones = [];
+
+            for (var i = 0; i < this.phonesCount; i++){
+                this.uploadPhones.push(this.telephones[i])
+            }
+        }
+    }
 });
