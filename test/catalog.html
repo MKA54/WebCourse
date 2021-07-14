@@ -9,11 +9,13 @@
     <script defer src="script.js"></script>
 
     <title>Каталог</title>
+
 </head>
 <body>
 <div class="container" id="app" v-cloak>
     <h1 class="title">Смартфоны</h1>
 
+    <span>Отобразить товары: </span>
     <input type="radio" @change="uploadPhonesList" id="two" value=2 v-model="phonesCount">
     <label for="two">2</label>
     <input type="radio" @change="uploadPhonesList" id="three" value=3 v-model="phonesCount">
@@ -29,7 +31,7 @@
         <thead>
         <tr>
             <th>
-                <input type="checkbox" id="checkbox" v-model="checked">
+                <input type="checkbox" @change="showDistinctions" id="checkbox" v-model="checked">
                 <label for="checkbox">Показать различия</label>
             </th>
             <th v-for="phone in uploadPhones" :key="phone.id">
@@ -41,58 +43,58 @@
         <tbody>
         <tr>
             <td>ПРОИЗВОДИТЕЛЬ</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 {{phone.producer}}
             </td>
         </tr>
         <tr>
             <td>ГОД РЕЛИЗА</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 {{phone.releaseYear}}
             </td>
         </tr>
         <tr>
             <td>ДИАГОНАЛЬ ЭКРАНА (ДЮЙМ)</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 {{phone.diagonal}}
             </td>
         </tr>
         <tr>
             <td>СТРАНА-ПРОИЗВОДИТЕЛЬ</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 {{phone.producingCountry}}
             </td>
         </tr>
         <tr>
             <td>ОБЪЕМ ПАМЯТИ</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 {{phone.memorySize}}
             </td>
         </tr>
         <tr>
             <td>ЧАСТОТА ОБНОВЛЕНИЯ ЭКРАНА</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 {{phone.screenRefreshRate}}
             </td>
         </tr>
         <tr>
             <td>NFC</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 <img :src=phone.NFC alt="Наличие поддержки функции"></td>
         </tr>
         <tr>
             <td>ПОДДЕРЖКА ESIM</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 <img :src=phone.eSIM alt="Наличие поддержки функции"></td>
         </tr>
         <tr>
             <td>ПОДДЕРЖКА БЕСПРОВОДНОЙ ЗАРЯДКИ</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 <img :src=phone.wirelessCharging alt="Наличие поддержки функции"></td>
         </tr>
         <tr>
             <td>СТОИМОСТЬ</td>
-            <td v-for="phone in uploadPhones" :key="phone.id">
+            <td v-if="isEditing" v-for="phone in uploadPhones" :key="phone.id">
                 {{phone.cost}} &#8381
             </td>
         </tr>

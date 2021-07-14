@@ -1,9 +1,9 @@
+Vue.component
+
 new Vue({
     el: "#app",
 
     data: {
-        checked: false,
-        phonesCount: 3,
         telephones: [
             {
                 phoneImage: "public/Apple iphone 12.jpg",
@@ -20,7 +20,7 @@ new Vue({
                 cost: "81 990"
             },
             {
-                phoneImage: "public/xiaomi mi 11 lite.jpg",
+                phoneImage: "public/xiaomi mi 11 lite.jpeg",
                 name: "Xiaomi Mi 11 Lite",
                 producer: "Xiaomi",
                 releaseYear: 2021,
@@ -91,19 +91,36 @@ new Vue({
             }
         ],
 
-        uploadPhones: []
+        uploadPhones: [],
+        itemsNotDisplayed: [],
+        showModal: false,
+        checked: false,
+        phonesCount: 3
     },
 
-    created: function(){
-        this.uploadPhonesList()
+    created: function () {
+        this.uploadPhonesList();
     },
 
     methods: {
         uploadPhonesList: function () {
             this.uploadPhones = [];
 
-            for (var i = 0; i < this.phonesCount; i++){
+            for (var i = 0; i < this.phonesCount; i++) {
                 this.uploadPhones.push(this.telephones[i])
+            }
+        },
+
+        showDistinctions: function () {
+            for (var i = 2, row; row = table.rows[i]; i++) {
+
+                for (var j = 1, k = 2, currentColumn, nextColumn; currentColumn = row.cells[j], nextColumn = row.cells[k]; j++, k++) {
+                    if (currentColumn.textContent !== nextColumn.textContent) {
+
+                    }
+                }
+
+
             }
         }
     }
